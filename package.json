@@ -7,7 +7,7 @@
     "build:prod": "NODE_ENV=production webpack",
     "db-setup": "node dbSetup.babel.js",
     "lint": "eslint client server universal test server.js dbSetup.js",
-    "start": "NODE_ENV=development node start-dev.js"
+    "start": "NODE_ENV=development node server.babel.js"
   },
   "keywords": [
     "react",
@@ -61,7 +61,6 @@
     "babel-preset-stage-0": "6.22.x",
     "babel-runtime": "6.23.x",
     "babel-template": "6.23.x",
-    "chai": "3.5.x",
     "css-loader": "0.23.x",
     "eslint": "2.9.x",
     "eslint-plugin-react": "5.1.x",
@@ -75,7 +74,6 @@
     "redux-devtools-dock-monitor": "1.1.x",
     "redux-devtools-log-monitor": "1.0.x",
     "redux-mock-store": "1.0.x",
-    "sinon": "1.17.x",
     "style-loader": "0.13.x",
     "stylus": "0.54.x",
     "stylus-loader": "2.5.x",

@@ -1,10 +1,10 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
 
-const config = require('config');
-const webpackConfig = require('./webpack.config');
+import config from 'config';
+import webpackConfig from './webpack.config';
 
 const host = 'localhost';
 const appPort = 3000;

@@ -4,7 +4,6 @@ import config from 'config';
 
 const rethinkdb = config.get('rethinkdb');
 const DATABASE = rethinkdb.db || 'carecru';
-console.log(rethinkdb);
 const TABLES = ['blogpost'];
 
 r.connect(rethinkdb)

@@ -1,14 +1,14 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 
-var config = require('config');
-var webpackConfig = require('./webpack.config');
+const config = require('config');
+const webpackConfig = require('./webpack.config');
 
-var host = 'localhost';
-var appPort = 3000;
-var devServerPort = 3001;
+const host = 'localhost';
+const appPort = 3000;
+const devServerPort = 3001;
 
 new WebpackDevServer(webpack(webpackConfig), {
   contentBase: [ config.get('buildDirectory'), '/' ].join(''),

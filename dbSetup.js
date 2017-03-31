@@ -3,8 +3,9 @@ import r from 'rethinkdb';
 import config from 'config';
 
 const rethinkdb = config.get('rethinkdb');
-let DATABASE = rethinkdb.db || 'pulse';
-let TABLES = ['pulses']; 
+const DATABASE = rethinkdb.db || 'carecru';
+console.log(rethinkdb);
+const TABLES = ['blogpost'];
 
 r.connect(rethinkdb)
 .then(conn => {
@@ -14,7 +15,7 @@ r.connect(rethinkdb)
   .then(() => closeConnection(conn));
 });
 
-function createDbIfNotExists(conn){
+const createDbIfNotExists = (conn) => {
   return getDbList(conn)
   .then((list) => {
     if(list.indexOf(DATABASE) === -1) {
@@ -26,7 +27,7 @@ function createDbIfNotExists(conn){
   });
 }
 
-function createTableIfNotExists(conn, table) {
+const createTableIfNotExists = (conn, table)  => {
   return getTableList(conn)
   .then((list) => {
     if(list.indexOf(table) === -1) {
@@ -38,25 +39,25 @@ function createTableIfNotExists(conn, table) {
   });
 }
 
-function getDbList(conn) {
+const getDbList = (conn)  => {
   return r.dbList().run(conn);
 }
 
-function getTableList(conn) {
+const getTableList = (conn)  => {
   return r.db(DATABASE).tableList().run(conn);
 }
 
-function createDatabase(conn) {
+const createDatabase = (conn)  => {
   console.log(' [-] Create Database:', DATABASE);
   return r.dbCreate(DATABASE).run(conn);
 }
 
-function createTable(conn, table) {
+const createTable = (conn, table)  => {
   console.log(' [-] Create Table:', table);
   return r.db(DATABASE).tableCreate(table).run(conn);
 }
 
-function closeConnection(conn) {
+const closeConnection = (conn)  => {
   console.log(' [x] Close connection!');
   return conn.close();
 }

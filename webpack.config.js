@@ -1,11 +1,11 @@
-var path = require('path');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var nib = require('nib');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const nib = require('nib');
 
-var config = require('config');
+const config = require('config');
 
-var entry, output, plugins, rules;
+let entry, output, plugins, rules;
 
 if (process.env.NODE_ENV !== 'production') {
   entry = [

@@ -1,0 +1,52 @@
+2017-03-31T10:49:42.037076000 0.149576s notice: Recursively removing directory /Users/wesleywong/coding/pulse-testing/rethinkdb_data/tmp
+2017-03-31T10:49:42.039450000 0.151956s notice: Initializing directory /Users/wesleywong/coding/pulse-testing/rethinkdb_data
+2017-03-31T10:49:42.040098000 0.152598s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/wesleywong/coding/pulse-testing/rethinkdb_data' did not already exist or is empty.)
+2017-03-31T10:49:42.040161000 0.152660s notice: Running rethinkdb 2.3.5 (CLANG 8.0.0 (clang-800.0.38))...
+2017-03-31T10:49:42.049852000 0.162352s notice: Running on Darwin 16.4.0 x86_64
+2017-03-31T10:49:42.049901000 0.162400s notice: Loading data from directory /Users/wesleywong/coding/pulse-testing/rethinkdb_data
+2017-03-31T10:49:42.153310000 0.265808s info: Automatically using cache size of 349 MB
+2017-03-31T10:49:42.153688000 0.266187s notice: Listening for intracluster connections on port 29015
+2017-03-31T10:49:42.156351000 0.268849s notice: Listening for client driver connections on port 28015
+2017-03-31T10:49:42.156480000 0.268979s notice: Listening for administrative HTTP connections on port 8080
+2017-03-31T10:49:42.156483000 0.268981s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-03-31T10:49:42.156487000 0.268985s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-03-31T10:49:42.156489000 0.268987s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-03-31T10:49:42.156492000 0.268990s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-03-31T10:49:42.156496000 0.268994s notice: Server ready, "Wesleys_MBP_30a" 820dd0a2-a469-434c-82c7-7aefa80fc98b
+2017-03-31T10:50:14.198306000 32.310440s info: Table dabdc997-6864-463c-8caa-49b3a6953cf5: Starting a new Raft election for term 1.
+2017-03-31T10:50:14.198736000 32.310870s info: Table dabdc997-6864-463c-8caa-49b3a6953cf5: Added replica on this server.
+2017-03-31T10:50:14.219084000 32.331219s info: Table dabdc997-6864-463c-8caa-49b3a6953cf5: This server is Raft leader for term 1. Latest log index is 0.
+2017-03-31T11:10:30.558688000 1248.657137s notice: Removing file /Users/wesleywong/coding/pulse-testing/rethinkdb_data/dabdc997-6864-463c-8caa-49b3a6953cf5
+2017-03-31T11:10:30.558695000 1248.657144s info: Table dabdc997-6864-463c-8caa-49b3a6953cf5: Deleted the table.
+2017-03-31T11:10:35.313705000 1253.412101s info: Table cb9dc563-5102-49f4-9e9d-4b8910eb0f4e: Starting a new Raft election for term 1.
+2017-03-31T11:10:35.313961000 1253.412358s info: Table cb9dc563-5102-49f4-9e9d-4b8910eb0f4e: Added replica on this server.
+2017-03-31T11:10:35.335572000 1253.433970s info: Table cb9dc563-5102-49f4-9e9d-4b8910eb0f4e: This server is Raft leader for term 1. Latest log index is 0.
+2017-03-31T11:11:48.658034000 1326.755595s notice: Removing file /Users/wesleywong/coding/pulse-testing/rethinkdb_data/cb9dc563-5102-49f4-9e9d-4b8910eb0f4e
+2017-03-31T11:11:48.658060000 1326.755621s info: Table cb9dc563-5102-49f4-9e9d-4b8910eb0f4e: Deleted the table.
+2017-03-31T11:11:53.591638000 1331.689147s info: Table c13db03d-e2ac-4cec-bcb2-1a147da7c069: Starting a new Raft election for term 1.
+2017-03-31T11:11:53.591895000 1331.689404s info: Table c13db03d-e2ac-4cec-bcb2-1a147da7c069: Added replica on this server.
+2017-03-31T11:11:53.613216000 1331.710726s info: Table c13db03d-e2ac-4cec-bcb2-1a147da7c069: This server is Raft leader for term 1. Latest log index is 0.
+2017-03-31T11:22:46.077726000 1984.167853s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: Starting a new Raft election for term 1.
+2017-03-31T11:22:46.077910000 1984.168036s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: Added replica on this server.
+2017-03-31T11:22:46.100021000 1984.190148s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: This server is Raft leader for term 1. Latest log index is 0.
+2017-03-31T11:44:30.357167000 3221.158569s notice: Removing file /Users/wesleywong/coding/pulse-testing/rethinkdb_data/c13db03d-e2ac-4cec-bcb2-1a147da7c069
+2017-03-31T11:44:30.357174000 3221.158576s info: Table c13db03d-e2ac-4cec-bcb2-1a147da7c069: Deleted the table.
+2017-03-31T11:46:14.471388000 3322.884872s notice: Server got SIGINT from pid 1703, uid 501; shutting down...
+2017-03-31T11:46:14.471669000 3322.885153s notice: Shutting down client connections...
+2017-03-31T11:46:14.471857000 3322.885341s notice: All client connections closed.
+2017-03-31T11:46:14.471863000 3322.885347s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-03-31T11:46:14.478001000 3322.891485s notice: Storage engine shut down.
+2017-03-31T11:46:24.045603000 0.103010s notice: Running rethinkdb 2.3.5 (CLANG 8.0.0 (clang-800.0.38))...
+2017-03-31T11:46:24.054104000 0.111509s notice: Running on Darwin 16.4.0 x86_64
+2017-03-31T11:46:24.054152000 0.111555s notice: Loading data from directory /Users/wesleywong/coding/carecru-interview/rethinkdb_data
+2017-03-31T11:46:24.081001000 0.138404s info: Automatically using cache size of 139 MB
+2017-03-31T11:46:24.081495000 0.138898s notice: Listening for intracluster connections on port 29015
+2017-03-31T11:46:24.093111000 0.150514s notice: Listening for client driver connections on port 28015
+2017-03-31T11:46:24.093253000 0.150657s notice: Listening for administrative HTTP connections on port 8080
+2017-03-31T11:46:24.093256000 0.150659s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-03-31T11:46:24.093259000 0.150662s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-03-31T11:46:24.093261000 0.150664s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-03-31T11:46:24.093333000 0.150736s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-03-31T11:46:24.093335000 0.150739s notice: Server ready, "Wesleys_MBP_30a" 820dd0a2-a469-434c-82c7-7aefa80fc98b
+2017-03-31T11:46:25.582300000 1.639685s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: Starting a new Raft election for term 2.
+2017-03-31T11:46:25.600157000 1.657542s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: This server is Raft leader for term 2. Latest log index is 3.

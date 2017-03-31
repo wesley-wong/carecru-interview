@@ -11,7 +11,7 @@ export function liveUpdates(io) {
   connect()
   .then(conn => {
     r
-    .table('pulses')
+    .table('blogpost')
     .changes().run(conn, (err, cursor) => {
       console.log('Listening for changes...');
       cursor.each((err, change) => {
@@ -26,7 +26,7 @@ export function getEvents() {
   return connect()
   .then(conn => {
     return r
-    .table('pulses')
+    .table('blogpost')
     .orderBy(r.desc('created')).run(conn)
     .then(cursor => cursor.toArray());
   });
@@ -38,7 +38,7 @@ export function addEvent(event) {
     event.created = new Date();
     event.text = xss(event.text);
     return r
-    .table('pulses')
+    .table('blogpost')
     .insert(event).run(conn)
     .then(response => {
       return Object.assign({}, event, {id: response.generated_keys[0]});
@@ -52,7 +52,7 @@ export function editEvent(id, event) {
   return connect()
   .then(conn => {
     return r
-    .table('pulses')
+    .table('blogpost')
     .get(id).update(event).run(conn)
     .then(() => event);
   });
@@ -62,7 +62,7 @@ export function deleteEvent(id) {
   return connect()
   .then(conn => {
     return r
-    .table('pulses')
+    .table('blogpost')
     .get(id).delete().run(conn)
     .then(() => ({id: id, deleted: true}));
   });

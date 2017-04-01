@@ -7,31 +7,22 @@ h1, h2, h3, p
 *
   font-family: 'Source Sans Pro', sans-serif
 
+.full-width
+  width: 100%
+
 .Pulse-header
   background-color: #252A3A
-  color: #1B98F8
-  margin-bottom: 20px
   box-shadow: 0px 3px 12px #4B7197
+  color: #1B98F8
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-bottom: 20px
 
   h1
     padding: 20px
     text-transform: uppercase
     text-align: center
-
-.Pulse-links
-  padding: 10px
-  text-align: center
-
-  a
-    padding: 10px
-    color: #fff
-    text-decoration: none
-
-    &:hover
-      color: #cccccc 
-
-    &.active
-      text-decoration: underline 
 
 .Pulse-addEventForm, .Pulse-eventList, .Pulse-async
   width: 600px
@@ -46,7 +37,7 @@ h1, h2, h3, p
     color: #EE5656
     font-weight: bold
 
-.Pulse-addEventForm 
+.Pulse-addEventForm
   form
     text-align: center
 
@@ -64,7 +55,7 @@ form label
 .Pulse-eventList-summary
   padding-bottom: 10px
   color: #252A3A
-  
+
   margin-bottom: 10px
   text-align: center
 
@@ -73,8 +64,10 @@ form label
 
 .val
   font-weight: 700
+  text-decoration: underline
 
-.Pulse-eventInput 
+.Pulse-eventInput
+
   input, button, label
     margin-right: 6px
 
@@ -86,7 +79,7 @@ form label
     appearance: none
     box-shadow: none
     transition: box-shadow 0.5s
-    
+
     &:focus, &.focus
       box-shadow: 0 0 5px 1px #4B7197
 
@@ -136,7 +129,7 @@ form label
     background-color: #1B98F8
     color: #fff
 
-.Pulse-eventList-list 
+.Pulse-eventList-list
   ul
     list-style-type: none
     margin: 0
@@ -144,7 +137,7 @@ form label
   li
     padding: 10px 20px
     background-color: #F8F8F8
-  
+
   li:first-child
     border-top-left-radius: 10px
     border-top-right-radius: 10px
@@ -163,11 +156,11 @@ form label
   fieldset
     padding: 0
 
-.Pulse-eventItem 
+.Pulse-eventItem
   p
     margin-top: 6px
 
-  &.empty 
+  &.empty
     p
       margin-top: 0px
       text-align: center

@@ -15,7 +15,7 @@ export default class EventInput extends Component {
     this.state = {
       errors: [],
       text: this.props.text || '',
-      value: this.props.value || 50
+      value: this.props.value || 0
     };
   }
 
@@ -27,7 +27,7 @@ export default class EventInput extends Component {
       errors = ['You have not said what happened!'];
     }
 
-    if (this.state.value < 1 || this.state.value > 100) {
+    if (this.state.value < -10 || this.state.value > 10) {
       errors = [...errors, 'You have somewhere set an invalid value!'];
     }
 
@@ -35,7 +35,7 @@ export default class EventInput extends Component {
       this.setState({errors: errors});
     } else {
       this.props.onSubmit({text: this.state.text, value: this.state.value, userId: this.props.userId});
-      this.setState({text: '', value: 50});
+      this.setState({text: '', value: 0});
     }
   }
 
@@ -48,6 +48,7 @@ export default class EventInput extends Component {
   }
 
   render() {
+    console.log('righthere', this.props);
     let self = this;
     let saveText = (this.props.editing) ? 'Save' : 'Add';
     let className = Object.keys(VALUE_CLASSES).reduce((current, key) => {
@@ -61,12 +62,24 @@ export default class EventInput extends Component {
     return (
       <form className='Pulse-eventInput pure-form'>
         <fieldset>
-          <input type='text' placeholder={this.props.textLabel} autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
-          <label htmlFor='value'>{this.props.valueLabel}</label>
-          <input className={className} type='range' id='value' min='1' max='100' value={this.state.value} onChange={::this.handleValueChange} /> 
+          <div>
+            <input className='full-width' type='text' placeholder='Title' autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
+            <hr />
+            <input className='full-width' type='text' placeholder={this.props.textLabel} autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
+          </div>
+          <label htmlFor='value'>Happiness Level</label>
+          <input className={className} type='range' id='value' min='-10' max='10' value={this.state.value} onChange={::this.handleValueChange} />
           <span className='Pulse-eventInput-value'>{this.state.value}</span>
           <button type='submit' className='save pure-button' onClick={::this.handleSubmit}>{saveText}</button>
         </fieldset>
+        <div>
+          <span>Number of Words </span>
+          <span className='val'>{4}</span>
+          <span> &#215; Happiness Level </span>
+          <span className='val'>{this.state.value}</span>
+          <span> = Sentiment Score </span>
+          <span className='val'>{4* this.state.value}</span>
+        </div>
       </form>
     );
   }

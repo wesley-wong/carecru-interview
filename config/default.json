@@ -2,7 +2,7 @@
   "rethinkdb": {
     "host": "localhost",
     "port": 28015,
-    "db": "carecru"
+    "db": "journal"
   },
   "express": {
     "host": "localhost",

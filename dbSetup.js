@@ -3,8 +3,8 @@ import r from 'rethinkdb';
 import config from 'config';
 
 const rethinkdb = config.get('rethinkdb');
-const DATABASE = rethinkdb.db || 'carecru';
-const TABLES = ['blogpost'];
+const DATABASE = rethinkdb.db || 'journal';
+const TABLES = ['entries'];
 
 r.connect(rethinkdb)
 .then(conn => {

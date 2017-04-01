@@ -6,12 +6,10 @@ export default class Header extends Component {
     return (
       <div>
         <header className='Pulse-header'>
-          <h1>Pulse</h1>
-          <div className='Pulse-links'>
-            <IndexLink to='/' activeClassName='active'>All Events</IndexLink>  
-            <Link to='/my-events' activeClassName='active'>My Events</Link>
-            <Link to='/other-events' activeClassName='active'>Other Events</Link>
-          </div>
+            <img src="https://carecru.com/wp-content/uploads/2017/02/Logo_H2-1-e1487616217405.png" alt='Carecru' />
+          <h1>
+            Interview
+          </h1>
         </header>
       </div>
     );

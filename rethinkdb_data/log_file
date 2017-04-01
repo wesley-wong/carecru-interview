@@ -92,3 +92,51 @@
 2017-03-31T12:26:15.044210000 0.084229s notice: Server ready, "Wesleys_MBP_30a" 820dd0a2-a469-434c-82c7-7aefa80fc98b
 2017-03-31T12:26:16.803074000 1.843075s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: Starting a new Raft election for term 4.
 2017-03-31T12:26:16.822083000 1.862084s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: This server is Raft leader for term 4. Latest log index is 9.
+2017-03-31T13:20:15.910396000 3068.295241s notice: Removing file /Users/wesleywong/coding/carecru-interview/rethinkdb_data/2598fb53-7768-46f2-87a4-32cfce592a3c
+2017-03-31T13:20:15.910407000 3068.295251s info: Table 2598fb53-7768-46f2-87a4-32cfce592a3c: Deleted the table.
+2017-03-31T13:20:21.855695000 3074.240471s notice: Server got SIGINT from pid 1703, uid 501; shutting down...
+2017-03-31T13:20:21.856148000 3074.240924s notice: Shutting down client connections...
+2017-03-31T13:20:21.857043000 3074.241820s notice: All client connections closed.
+2017-03-31T13:20:21.857133000 3074.241931s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-03-31T13:20:21.858559000 3074.243335s notice: Storage engine shut down.
+2017-03-31T13:20:46.270201000 0.027218s notice: Running rethinkdb 2.3.5 (CLANG 8.0.0 (clang-800.0.38))...
+2017-03-31T13:20:46.280492000 0.037504s notice: Running on Darwin 16.4.0 x86_64
+2017-03-31T13:20:46.280581000 0.037590s notice: Loading data from directory /Users/wesleywong/coding/carecru-interview/rethinkdb_data
+2017-03-31T13:20:46.314303000 0.071313s info: Automatically using cache size of 100 MB
+2017-03-31T13:20:46.314311000 0.071321s warn: Cache size is very low and may impact performance.
+2017-03-31T13:20:46.314796000 0.071805s notice: Listening for intracluster connections on port 29015
+2017-03-31T13:20:46.316235000 0.073244s notice: Listening for client driver connections on port 28015
+2017-03-31T13:20:46.316335000 0.073344s notice: Listening for administrative HTTP connections on port 8080
+2017-03-31T13:20:46.316340000 0.073350s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-03-31T13:20:46.316342000 0.073351s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-03-31T13:20:46.316346000 0.073355s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-03-31T13:20:46.316347000 0.073356s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-03-31T13:20:46.316351000 0.073360s notice: Server ready, "Wesleys_MBP_30a" 820dd0a2-a469-434c-82c7-7aefa80fc98b
+2017-03-31T13:20:51.059871000 4.816828s info: Table 952d7b70-4714-4080-bcc7-8b41d522621a: Starting a new Raft election for term 1.
+2017-03-31T13:20:51.060348000 4.817306s info: Table 952d7b70-4714-4080-bcc7-8b41d522621a: Added replica on this server.
+2017-03-31T13:20:51.081445000 4.838403s info: Table 952d7b70-4714-4080-bcc7-8b41d522621a: This server is Raft leader for term 1. Latest log index is 0.
+2017-03-31T13:34:04.656642000 798.403772s notice: Server got SIGINT from pid 1703, uid 501; shutting down...
+2017-03-31T13:34:04.656935000 798.404064s notice: Shutting down client connections...
+2017-03-31T13:34:04.657630000 798.404760s notice: All client connections closed.
+2017-03-31T13:34:04.657640000 798.404769s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-03-31T13:34:04.662925000 798.410055s notice: Storage engine shut down.
+2017-03-31T13:34:10.475158000 0.009364s notice: Running rethinkdb 2.3.5 (CLANG 8.0.0 (clang-800.0.38))...
+2017-03-31T13:34:10.481965000 0.016143s notice: Running on Darwin 16.4.0 x86_64
+2017-03-31T13:34:10.482005000 0.016183s notice: Loading data from directory /Users/wesleywong/coding/carecru-interview/rethinkdb_data
+2017-03-31T13:34:10.532435000 0.066613s info: Automatically using cache size of 100 MB
+2017-03-31T13:34:10.532444000 0.066621s warn: Cache size is very low and may impact performance.
+2017-03-31T13:34:10.532900000 0.067077s notice: Listening for intracluster connections on port 29015
+2017-03-31T13:34:10.552573000 0.086750s notice: Listening for client driver connections on port 28015
+2017-03-31T13:34:10.552730000 0.086907s notice: Listening for administrative HTTP connections on port 8080
+2017-03-31T13:34:10.552733000 0.086910s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-03-31T13:34:10.552734000 0.086911s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-03-31T13:34:10.552742000 0.086919s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-03-31T13:34:10.552743000 0.086920s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-03-31T13:34:10.552745000 0.086922s notice: Server ready, "Wesleys_MBP_30a" 820dd0a2-a469-434c-82c7-7aefa80fc98b
+2017-03-31T13:34:12.325624000 1.859784s info: Table 952d7b70-4714-4080-bcc7-8b41d522621a: Starting a new Raft election for term 2.
+2017-03-31T13:34:12.351336000 1.885497s info: Table 952d7b70-4714-4080-bcc7-8b41d522621a: This server is Raft leader for term 2. Latest log index is 3.
+2017-03-31T22:00:05.810991000 9258.361459s info: Table 26412487-ac34-4f45-b6d2-00d7ba927a3b: Starting a new Raft election for term 1.
+2017-03-31T22:00:05.811305000 9258.361774s info: Table 26412487-ac34-4f45-b6d2-00d7ba927a3b: Added replica on this server.
+2017-03-31T22:00:05.831993000 9258.382462s info: Table 26412487-ac34-4f45-b6d2-00d7ba927a3b: This server is Raft leader for term 1. Latest log index is 0.
+2017-03-31T22:01:09.163217000 9321.712852s notice: Removing file /Users/wesleywong/coding/carecru-interview/rethinkdb_data/952d7b70-4714-4080-bcc7-8b41d522621a
+2017-03-31T22:01:09.163255000 9321.712888s info: Table 952d7b70-4714-4080-bcc7-8b41d522621a: Deleted the table.

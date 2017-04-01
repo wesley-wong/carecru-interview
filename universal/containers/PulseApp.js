@@ -22,8 +22,8 @@ class PulseApp extends Component {
   };
 
   render() {
-    let actions = { 
-      editEvent: this.props.editEvent, 
+    let actions = {
+      editEvent: this.props.editEvent,
       deleteEvent: this.props.deleteEvent
     };
 
@@ -50,6 +50,6 @@ export default connect(
     userId: state.pulseApp.userId,
     isWorking: state.pulseApp.isWorking,
     error: state.pulseApp.error
-  }), 
+  }),
   dispatch => bindActionCreators(PulseActions, dispatch)
 )(PulseApp);

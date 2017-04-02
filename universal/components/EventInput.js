@@ -16,7 +16,9 @@ export default class EventInput extends Component {
       errors: [],
       title: this.props.title || '',
       text: this.props.text || '',
-      value: this.props.value || 0
+      value: this.props.value || 0,
+      wordCount: 0,
+      sentiment: 0
     };
   }
 
@@ -41,25 +43,33 @@ export default class EventInput extends Component {
   }
 
   handleTextChange(e) {
-    console.log('in handle TEXT change', e.target.value);
-    this.setState({ text: e.target.value });
+    const wordCount = e.target.value.trim().split(/\s+/).length;
+    const sentiment = this.state.value * wordCount;
+    this.setState({
+      text: e.target.value,
+      wordCount: wordCount,
+      sentiment: sentiment
+    });
   }
 
 
   handleTitleChange(e) {
-    console.log('in handle TITLE change', e.target.value);
     this.setState({ title: e.target.value });
   }
 
 
   handleValueChange(e) {
-    // count words:
-    // e.target.value
-    this.setState({ value: parseInt(e.target.value, 10) });
+    const value = parseInt(e.target.value, 10);
+    const sentiment = this.state.wordCount * value;
+    this.setState({
+      value: value,
+      sentiment: sentiment
+    });
   }
 
 
   render() {
+    console.log(this.state);
     let self = this;
     let saveText = (this.props.editing) ? 'Save' : 'Add';
     let className = Object.keys(VALUE_CLASSES).reduce((current, key) => {
@@ -76,7 +86,7 @@ export default class EventInput extends Component {
           <div>
             <input className='full-width' type='text' placeholder='Title' autoFocus='true' value={this.state.title} onChange={::this.handleTitleChange} />
             <hr />
-            <textarea className='full-width' type='text' rows='5' placeholder={this.props.textLabel} autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
+            <textarea className='full-width' type='text' rows='5' placeholder='How are you feeling today?' autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
           </div>
           <label htmlFor='value'>Happiness Level</label>
           <input className={className} type='range' id='value' min='-10' max='10' value={this.state.value} onChange={::this.handleValueChange} />
@@ -85,11 +95,11 @@ export default class EventInput extends Component {
         </fieldset>
         <div>
           <span>Number of Words </span>
-          <span className='val'>{4}</span>
+          <span className='val'>{this.state.wordCount}</span>
           <span> &#215; Happiness Level </span>
           <span className='val'>{this.state.value}</span>
           <span> = Sentiment Score </span>
-          <span className='val'>{4* this.state.value}</span>
+          <span className='val'>{this.state.sentiment}</span>
         </div>
       </form>
     );

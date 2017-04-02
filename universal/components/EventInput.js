@@ -82,6 +82,9 @@ export default class EventInput extends Component {
 
     return (
       <form className='Pulse-eventInput pure-form'>
+        <h1>
+          Make a Journal Entry
+        </h1>
         <fieldset>
           <div>
             <input className='full-width' type='text' placeholder='Title' autoFocus='true' value={this.state.title} onChange={::this.handleTitleChange} />

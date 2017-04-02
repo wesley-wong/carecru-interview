@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import Header from '../components/Header';
 import EventList from '../components/EventList';
 import EventTicker from '../components/EventTicker';
-import AsyncBar from '../components/AsyncBar';
 import EventInput from '../components/EventInput';
 
 import * as PulseActions from '../actions/PulseActions';
@@ -31,17 +30,9 @@ class PulseApp extends Component {
       <div className="Pulse-Container">
         <Header/>
         <section className='Pulse-addEventForm'>
-          <div>
-            <h1>
-              Make A Journal Entry
-            </h1>
-
-          </div>
           <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
-        <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
         {this.props.myEvents}
-        {this.props.otherEvents}
       </div>
     );
   }

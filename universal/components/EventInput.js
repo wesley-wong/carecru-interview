@@ -14,6 +14,7 @@ export default class EventInput extends Component {
     super(props, context);
     this.state = {
       errors: [],
+      title: this.props.title || '',
       text: this.props.text || '',
       value: this.props.value || 0
     };
@@ -40,15 +41,25 @@ export default class EventInput extends Component {
   }
 
   handleTextChange(e) {
+    console.log('in handle TEXT change', e.target.value);
     this.setState({ text: e.target.value });
   }
 
+
+  handleTitleChange(e) {
+    console.log('in handle TITLE change', e.target.value);
+    this.setState({ title: e.target.value });
+  }
+
+
   handleValueChange(e) {
+    // count words:
+    // e.target.value
     this.setState({ value: parseInt(e.target.value, 10) });
   }
 
+
   render() {
-    console.log('righthere', this.props);
     let self = this;
     let saveText = (this.props.editing) ? 'Save' : 'Add';
     let className = Object.keys(VALUE_CLASSES).reduce((current, key) => {
@@ -63,9 +74,9 @@ export default class EventInput extends Component {
       <form className='Pulse-eventInput pure-form'>
         <fieldset>
           <div>
-            <input className='full-width' type='text' placeholder='Title' autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
+            <input className='full-width' type='text' placeholder='Title' autoFocus='true' value={this.state.title} onChange={::this.handleTitleChange} />
             <hr />
-            <input className='full-width' type='text' placeholder={this.props.textLabel} autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
+            <textarea className='full-width' type='text' rows='5' placeholder={this.props.textLabel} autoFocus='true' value={this.state.text} onChange={::this.handleTextChange} />
           </div>
           <label htmlFor='value'>Happiness Level</label>
           <input className={className} type='range' id='value' min='-10' max='10' value={this.state.value} onChange={::this.handleValueChange} />

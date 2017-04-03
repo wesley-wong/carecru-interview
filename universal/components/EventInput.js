@@ -37,8 +37,12 @@ export default class EventInput extends Component {
     if (errors && errors.length > 0) {
       this.setState({errors: errors});
     } else {
-      this.props.onSubmit({text: this.state.text, value: this.state.value, userId: this.props.userId});
-      this.setState({text: '', value: 0});
+      this.props.onSubmit({
+        title: this.state.title,
+        text: this.state.text,
+        value: this.state.sentiment,
+        userId: this.props.userId});
+      this.setState({title: '', text: '', value: 0, wordCount:0, sentiment: 0 });
     }
   }
 
@@ -69,7 +73,6 @@ export default class EventInput extends Component {
 
 
   render() {
-    console.log(this.state);
     let self = this;
     let saveText = (this.props.editing) ? 'Save' : 'Add';
     let className = Object.keys(VALUE_CLASSES).reduce((current, key) => {

@@ -12,13 +12,14 @@ export default class EventList extends Component {
     const { events, userId, actions } = this.props;
 
     const myEvents = events.filter(row => row.userId === userId );
+    myEvents.sort((a, b) => {return b.value - a.value})
+    console.log(myEvents);
     let list;
     let editable = true;
 
     let cumulative = myEvents.reduce((x, event) =>  event.value + x, 0);
     let average = (myEvents.length > 0) ? Math.round(cumulative/myEvents.length): 0;
 
-    
 
     if (myEvents.length > 0) {
       list = myEvents.map((event, key) =>
@@ -35,7 +36,7 @@ export default class EventList extends Component {
     return (
       <section className='Pulse-eventList'>
         <div className='Pulse-eventList-summary'>
-          <span>Your Events</span>
+          <span>Your Entries</span>
           <span className='val'>{myEvents.length}</span>
           <span>Avg.</span>
           <span className='val'>{average}</span>

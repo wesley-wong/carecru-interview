@@ -17,8 +17,8 @@ export default class EventInput extends Component {
       title: this.props.title || '',
       text: this.props.text || '',
       value: this.props.value || 0,
-      wordCount: 0,
-      sentiment: 0
+      wordCount: this.props.wordCount || 0,
+      sentiment: this.props.sentiment || 0
     };
   }
 
@@ -40,8 +40,11 @@ export default class EventInput extends Component {
       this.props.onSubmit({
         title: this.state.title,
         text: this.state.text,
-        value: this.state.sentiment,
-        userId: this.props.userId});
+        value: this.state.value,
+        sentiment: this.state.sentiment,
+        wordCount: this.state.wordCount,
+        userId: this.props.userId
+      });
       this.setState({title: '', text: '', value: 0, wordCount:0, sentiment: 0 });
     }
   }

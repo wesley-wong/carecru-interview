@@ -17,7 +17,7 @@ export default class EventList extends Component {
     let list;
     let editable = true;
 
-    let cumulative = myEvents.reduce((x, event) =>  event.value + x, 0);
+    let cumulative = myEvents.reduce((x, event) =>  event.sentiment + x, 0);
     let average = (myEvents.length > 0) ? Math.round(cumulative/myEvents.length): 0;
 
 

@@ -44,7 +44,10 @@ export default class EventItem extends Component {
     if (this.state.editing) {
       element = (
         <EventInput text={event.text}
+                    title={event.title}
                     value={event.value}
+                    wordCount={event.wordCount}
+                    sentiment={event.sentiment}
                     userId={event.userId}
                     editing={this.state.editing}
                     valueLabel='Rating'
@@ -68,7 +71,7 @@ export default class EventItem extends Component {
           </p>
           {del}
           <p className='created'>{moment(modified).fromNow()}</p>
-          <p className='outcome'>{event.value}</p>
+          <p className='outcome'>{event.sentiment}</p>
         </div>
       );
     }

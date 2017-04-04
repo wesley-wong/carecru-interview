@@ -52,6 +52,7 @@ export default class EntyInput extends Component {
   }
 
   handleTextChange(e) {
+    // calculates sentiment on textchange
     const wordCount = e.target.value.trim().split(/\s+/).length;
     const sentiment = this.state.value * wordCount;
     this.setState({
@@ -61,13 +62,14 @@ export default class EntyInput extends Component {
     });
   }
 
-
+  // added function to handle title and setState
   handleTitleChange(e) {
     this.setState({ title: e.target.value });
   }
 
 
   handleValueChange(e) {
+    // calculates sentiment on happiness rating change
     const value = parseInt(e.target.value, 10);
     const sentiment = this.state.wordCount * value;
     this.setState({
@@ -88,6 +90,8 @@ export default class EntyInput extends Component {
       }
     }, null);
 
+    // added onChange to inputs and textarea
+    // added live sentiment value calculator
     return (
       <form className='CareCru-entryInput pure-form'>
         <h1>

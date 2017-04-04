@@ -95,4 +95,62 @@ describe('Actions', () => {
       expect(actualActions).to.eql(expectedActions);
     });
   });
+  describe('loadEntries', () => {
+    const mockStore = configureStore([thunk]);
+    it('should trigger a LOAD_ENTRIES_REQUEST and LOAD_ENTRIES_SUCCESS action when succesful', () => {
+      let requestMock = {
+        get: () => ({
+          set: () => ({
+            end: (x) => x(null, {
+              body: [ { name: 'Awesome', value: 54 } ]
+            })
+          })
+        })
+      };
+
+      actions.__Rewire__('request', requestMock);
+
+      let expectedActions = [
+        { type: 'LOAD_ENTRIES_REQUEST' },
+        { type: 'LOAD_ENTRIES_SUCCESS', entries: [ { name: 'Awesome', value: 54 } ] }
+      ];
+
+      let initialState = {CareCruApp: { entries: [], userId: 'baseUser'} };
+      let store = mockStore(initialState);
+
+      store.dispatch(loadEntries());
+
+      const actualActions = store.getActions();
+
+      expect(actualActions).to.eql(expectedActions);
+    });
+
+    it('should trigger a LOAD_ENTRIES_REQUEST and LOAD_ENTRIES_FAILURE action when unsuccessful', () => {
+      let error = 'An Error Occurred!';
+      let requestMock = {
+        get: () => ({
+          set: () => ({
+            end: (x) => x(error)
+          })
+        })
+      };
+
+      actions.__Rewire__('request', requestMock);
+
+      let expectedActions = [
+        { type: 'LOAD_ENTRIES_REQUEST' },
+        { type: 'LOAD_ENTRIES_FAILURE', error: error }
+      ];
+
+      let initialState = {CareCruApp: { entries: [], userId: 'baseUser'} };
+      let store = mockStore(initialState);
+
+      store.dispatch(loadEntries());
+
+      const actualActions = store.getActions();
+
+      expect(actualActions).to.eql(expectedActions);
+    });
+  });
+
 });

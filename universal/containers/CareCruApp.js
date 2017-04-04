@@ -9,8 +9,19 @@ import EntryInput from '../components/EntryInput';
 import * as CareCruActions from '../actions/CareCruActions';
 
 class CareCruApp extends Component {
+  static propTypes = {
+    addEntry: React.PropTypes.func.isRequired,
+    editEntry: React.PropTypes.func.isRequired,
+    deleteEntry: React.PropTypes.func.isRequired,
+    userId: React.PropTypes.string,
+    entries: React.PropTypes.array,
+    isWorking: React.PropTypes.bool,
+    error: React.PropTypes.any,
+  };
 
   render() {
+
+
     // changed onSubmit function name
     return (
       <div className="CareCru-Container">

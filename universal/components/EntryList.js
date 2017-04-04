@@ -12,7 +12,9 @@ export default class EntryList extends Component {
     const { entries, userId, actions } = this.props;
 
     const journalEntries = entries.filter(row => row.userId === userId );
-    journalEntries.sort((a, b) => {return b.value - a.value})
+
+    // Sort Journal Entries by Sentiment Value desc
+    journalEntries.sort((a, b) => {return b.sentiment - a.sentiment})
     let list;
     let editable = true;
 

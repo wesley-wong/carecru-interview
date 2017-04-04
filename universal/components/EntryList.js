@@ -13,7 +13,6 @@ export default class EntryList extends Component {
 
     const journalEntries = entries.filter(row => row.userId === userId );
     journalEntries.sort((a, b) => {return b.value - a.value})
-    console.log(journalEntries);
     let list;
     let editable = true;
 

@@ -36,8 +36,6 @@ export default class EntryItem extends Component {
 
   render() {
     const { row, id, entry, editEntry, deleteEntry } = this.props;
-    console.log('this props', this.props);
-    console.log('evevnt', entry);
     let element, className = (row % 2 === 0) ? 'even' : 'odd';
     let modified = (entry.updated) ? entry.updated : entry.created;
 
@@ -62,11 +60,9 @@ export default class EntryItem extends Component {
       element = (
         <div className='CareCru-entryItem'>
           <p className='rowNumber'>{row+1}.</p>
-          <p>
-            <h1>
-              {entry.title}
-            </h1>
-          </p>
+          <h1>
+            {entry.title}
+          </h1>
           <p className='title' onClick={::this.handleClick}>
             {entry.text}
 

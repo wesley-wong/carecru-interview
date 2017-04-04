@@ -140,3 +140,8 @@
 2017-03-31T22:00:05.831993000 9258.382462s info: Table 26412487-ac34-4f45-b6d2-00d7ba927a3b: This server is Raft leader for term 1. Latest log index is 0.
 2017-03-31T22:01:09.163217000 9321.712852s notice: Removing file /Users/wesleywong/coding/carecru-interview/rethinkdb_data/952d7b70-4714-4080-bcc7-8b41d522621a
 2017-03-31T22:01:09.163255000 9321.712888s info: Table 952d7b70-4714-4080-bcc7-8b41d522621a: Deleted the table.
+2017-04-03T15:53:23.596362000 28462.271374s notice: Removing file /Users/wesleywong/coding/carecru-interview/rethinkdb_data/26412487-ac34-4f45-b6d2-00d7ba927a3b
+2017-04-03T15:53:23.596371000 28462.271383s info: Table 26412487-ac34-4f45-b6d2-00d7ba927a3b: Deleted the table.
+2017-04-03T15:53:59.578141000 28498.252668s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: Starting a new Raft election for term 1.
+2017-04-03T15:53:59.578488000 28498.253015s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: Added replica on this server.
+2017-04-03T15:53:59.602006000 28498.276533s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: This server is Raft leader for term 1. Latest log index is 0.

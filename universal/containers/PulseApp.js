@@ -21,16 +21,16 @@ class PulseApp extends Component {
   };
 
   render() {
-    let actions = {
-      editEvent: this.props.editEvent,
-      deleteEvent: this.props.deleteEvent
-    };
+    // let actions = {
+    //   editEvent: this.props.editEvent,
+    //   deleteEvent: this.props.deleteEvent
+    // };
 
     return (
       <div className="Pulse-Container">
         <Header/>
         <section className='Pulse-addEventForm'>
-          <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
+          <EventInput onSubmit={this.props.addJournalEntry} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
         {this.props.myEvents}
       </div>

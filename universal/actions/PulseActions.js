@@ -47,19 +47,23 @@ export function loadEventsFailure(error) {
   };
 }
 
-export function addEvent(event) {
-  console.log('Add event', event);
+// Returns a thunk that attempts to add journal entries
+export function addJournalEntry(event) {
   return dispatch => {
+    // Notify the store that a request has been sent
     dispatch(addEventRequest(event));
 
+    // Add the Journal Entry to the API
     return request
       .post(eventsUrl)
       .send(event)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) {
+          // Notify the store that there has been an error
           dispatch(addEventFailure(err, event));
         } else {
+          // Notify the store of a successful
           dispatch(addEventSuccess(res.body));
         }
       });

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 import pulses from './pulse';
 
 // const rootReducer = combineReducers({

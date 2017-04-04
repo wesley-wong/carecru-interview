@@ -24,8 +24,8 @@ class OtherEvents extends Component {
  */
 export default connect(
   state => ({
-    events: state.pulseApp.events,
-    userId: state.pulseApp.userId
+    events: state.CareCruApp.events,
+    userId: state.CareCruApp.userId
   }),
   dispatch => bindActionCreators(PulseActions, dispatch)
 )(OtherEvents);

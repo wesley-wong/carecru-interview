@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import PulseApp from './containers/PulseApp';
+import CareCruApp from './containers/CareCruApp';
 import MyEvents from './containers/MyEvents';
 
 export default (
-  <Route path='/' component={PulseApp}>
+  <Route path='/' component={CareCruApp}>
     <IndexRoute components={{myEvents: MyEvents}} />
   </Route>
 );

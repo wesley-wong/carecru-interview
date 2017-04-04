@@ -9,7 +9,7 @@ import EntryInput from '../components/EntryInput';
 
 import * as PulseActions from '../actions/PulseActions';
 
-class PulseApp extends Component {
+class CareCruApp extends Component {
   static propTypes = {
     addEvent: React.PropTypes.func.isRequired,
     editEvent: React.PropTypes.func.isRequired,
@@ -44,10 +44,10 @@ class PulseApp extends Component {
  */
 export default connect(
   state => ({
-    events: state.pulseApp.events,
-    userId: state.pulseApp.userId,
-    isWorking: state.pulseApp.isWorking,
-    error: state.pulseApp.error
+    events: state.CareCruApp.events,
+    userId: state.CareCruApp.userId,
+    isWorking: state.CareCruApp.isWorking,
+    error: state.CareCruApp.error
   }),
   dispatch => bindActionCreators(PulseActions, dispatch)
-)(PulseApp);
+)(CareCruApp);

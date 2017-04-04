@@ -4,13 +4,13 @@ import thunkMiddleware from 'redux-thunk';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { persistState } from 'redux-devtools';
 
-import pulseApp from '../reducers';
+import CareCruApp from '../reducers';
 import DevTools from '../containers/devTools';
 
 export default (req, initialState) => {
   const rootReducer = combineReducers({
     routing: routerReducer,
-    pulseApp
+    CareCruApp
   });
 
   let enhancer = compose(
@@ -27,4 +27,3 @@ export default (req, initialState) => {
   return createStore(rootReducer, initialState, enhancer);
 };
 
-    

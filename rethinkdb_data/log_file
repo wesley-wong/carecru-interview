@@ -145,3 +145,24 @@
 2017-04-03T15:53:59.578141000 28498.252668s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: Starting a new Raft election for term 1.
 2017-04-03T15:53:59.578488000 28498.253015s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: Added replica on this server.
 2017-04-03T15:53:59.602006000 28498.276533s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: This server is Raft leader for term 1. Latest log index is 0.
+2017-04-03T22:17:49.457413000 0.079661s notice: Running rethinkdb 2.3.5 (CLANG 8.0.0 (clang-800.0.38))...
+2017-04-03T22:17:49.469453000 0.091696s notice: Running on Darwin 16.4.0 x86_64
+2017-04-03T22:17:49.469581000 0.091823s notice: Loading data from directory /Users/wesleywong/coding/carecru-interview/rethinkdb_data
+2017-04-03T22:17:49.511631000 0.133872s info: Automatically using cache size of 100 MB
+2017-04-03T22:17:49.511639000 0.133880s warn: Cache size does not leave much memory for server and query overhead (available memory: 895 MB).
+2017-04-03T22:17:49.511645000 0.133885s warn: Cache size is very low and may impact performance.
+2017-04-03T22:17:49.512363000 0.134604s notice: Listening for intracluster connections on port 29015
+2017-04-03T22:17:49.531175000 0.153416s notice: Listening for client driver connections on port 28015
+2017-04-03T22:17:49.531373000 0.153614s notice: Listening for administrative HTTP connections on port 8080
+2017-04-03T22:17:49.531376000 0.153616s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-04-03T22:17:49.531377000 0.153618s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-04-03T22:17:49.531378000 0.153619s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-04-03T22:17:49.531473000 0.153714s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-04-03T22:17:49.531476000 0.153716s notice: Server ready, "Wesleys_MBP_30a" 820dd0a2-a469-434c-82c7-7aefa80fc98b
+2017-04-03T22:17:50.938474000 1.560699s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: Starting a new Raft election for term 2.
+2017-04-03T22:17:50.957806000 1.580030s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: This server is Raft leader for term 2. Latest log index is 3.
+2017-04-03T22:18:01.617599000 12.239672s notice: Removing file /Users/wesleywong/coding/carecru-interview/rethinkdb_data/5253f9ef-4988-4130-9d27-5eebf57ca129
+2017-04-03T22:18:01.617616000 12.239688s info: Table 5253f9ef-4988-4130-9d27-5eebf57ca129: Deleted the table.
+2017-04-03T22:18:07.819076000 18.441064s info: Table 77299841-aeae-4a45-acac-4772c1e66c45: Starting a new Raft election for term 1.
+2017-04-03T22:18:07.819512000 18.441500s info: Table 77299841-aeae-4a45-acac-4772c1e66c45: Added replica on this server.
+2017-04-03T22:18:07.840300000 18.462288s info: Table 77299841-aeae-4a45-acac-4772c1e66c45: This server is Raft leader for term 1. Latest log index is 0.

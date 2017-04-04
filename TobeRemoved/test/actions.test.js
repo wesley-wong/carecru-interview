@@ -57,8 +57,8 @@ describe('Actions', () => {
         { type: 'LOAD_EVENTS_REQUEST' },
         { type: 'LOAD_EVENTS_SUCCESS', events: [ { name: 'Awesome', value: 54 } ] }
       ];
-      
-      let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
+
+      let initialState = {CareCruApp: { events: [], userId: 'baseUser'} };
       let store = mockStore(initialState);
 
       store.dispatch(loadEvents());
@@ -84,8 +84,8 @@ describe('Actions', () => {
         { type: 'LOAD_EVENTS_REQUEST' },
         { type: 'LOAD_EVENTS_FAILURE', error: error }
       ];
-      
-      let initialState = {pulseApp: { events: [], userId: 'baseUser'} };
+
+      let initialState = {CareCruApp: { events: [], userId: 'baseUser'} };
       let store = mockStore(initialState);
 
       store.dispatch(loadEvents());

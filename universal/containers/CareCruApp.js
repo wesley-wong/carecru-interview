@@ -7,7 +7,7 @@ import EntryList from '../components/EntryList';
 import EntryTicker from '../components/EntryTicker';
 import EntryInput from '../components/EntryInput';
 
-import * as PulseActions from '../actions/PulseActions';
+import * as CareCruActions from '../actions/CareCruActions';
 
 class CareCruApp extends Component {
   static propTypes = {
@@ -49,5 +49,5 @@ export default connect(
     isWorking: state.CareCruApp.isWorking,
     error: state.CareCruApp.error
   }),
-  dispatch => bindActionCreators(PulseActions, dispatch)
+  dispatch => bindActionCreators(CareCruActions, dispatch)
 )(CareCruApp);

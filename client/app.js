@@ -8,7 +8,7 @@ import { setupRealtime } from './Realtime';
 
 import routes from '../universal/routes';
 import store from '../universal/store';
-import * as actions from '../universal/actions/PulseActions';
+import * as actions from '../universal/actions/CareCruActions';
 
 import Root from '../universal/containers/root';
 

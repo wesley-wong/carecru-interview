@@ -10,7 +10,7 @@ import chai from 'chai';
 var expect = chai.expect;
 
 import reducer from '../universal/reducers';
-import * as actions from '../universal/actions/PulseActions.js';
+import * as actions from '../universal/actions/CareCruActions.js';
 
 describe('Reducers', () => {
 

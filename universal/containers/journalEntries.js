@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import EntryList from '../components/EntryList';
 
-import * as PulseActions from '../actions/PulseActions';
+import * as CareCruActions from '../actions/CareCruActions';
 
 class journalEntries extends Component {
   static propTypes = {
@@ -35,5 +35,5 @@ export default connect(
     events: state.CareCruApp.events,
     userId: state.CareCruApp.userId
   }),
-  dispatch => bindActionCreators(PulseActions, dispatch)
+  dispatch => bindActionCreators(CareCruActions, dispatch)
 )(journalEntries);

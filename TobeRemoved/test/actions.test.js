@@ -10,7 +10,7 @@ var expect = chai.expect;
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { setUserId, loadEvents, __RewireAPI__ as actions } from '../universal/actions/PulseActions.js';
+import { setUserId, loadEvents, __RewireAPI__ as actions } from '../universal/actions/CareCruActions.js';
 import * as types from '../universal/constants/ActionTypes';
 
 describe('Actions', () => {
@@ -40,7 +40,7 @@ describe('Actions', () => {
    */
   describe('loadEvents', () => {
     const mockStore = configureStore([thunk]);
-    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_SUCCESS action when succesful', () => {
+    it('should trigger a LOAD_ENTRIES_REQUEST and LOAD_ENTRIES_SUCCESS action when succesful', () => {
       let requestMock = {
         get: () => ({
           set: () => ({
@@ -54,8 +54,8 @@ describe('Actions', () => {
       actions.__Rewire__('request', requestMock);
 
       let expectedActions = [
-        { type: 'LOAD_EVENTS_REQUEST' },
-        { type: 'LOAD_EVENTS_SUCCESS', events: [ { name: 'Awesome', value: 54 } ] }
+        { type: 'LOAD_ENTRIES_REQUEST' },
+        { type: 'LOAD_ENTRIES_SUCCESS', events: [ { name: 'Awesome', value: 54 } ] }
       ];
 
       let initialState = {CareCruApp: { events: [], userId: 'baseUser'} };
@@ -68,7 +68,7 @@ describe('Actions', () => {
       expect(actualActions).to.eql(expectedActions);
     });
 
-    it('should trigger a LOAD_EVENTS_REQUEST and LOAD_EVENTS_FAILURE action when unsuccessful', () => {
+    it('should trigger a LOAD_ENTRIES_REQUEST and LOAD_ENTRIES_FAILURE action when unsuccessful', () => {
       let error = 'An Error Occurred!';
       let requestMock = {
         get: () => ({
@@ -81,8 +81,8 @@ describe('Actions', () => {
       actions.__Rewire__('request', requestMock);
 
       let expectedActions = [
-        { type: 'LOAD_EVENTS_REQUEST' },
-        { type: 'LOAD_EVENTS_FAILURE', error: error }
+        { type: 'LOAD_ENTRIES_REQUEST' },
+        { type: 'LOAD_ENTRIES_FAILURE', error: error }
       ];
 
       let initialState = {CareCruApp: { events: [], userId: 'baseUser'} };

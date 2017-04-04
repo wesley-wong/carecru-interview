@@ -1,8 +1,8 @@
-import { 
-  LOAD_EVENTS_REQUEST, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_FAILURE,
-  ADD_EVENT_REQUEST, ADD_EVENT_SUCCESS, ADD_EVENT_FAILURE,
-  DELETE_EVENT_REQUEST, DELETE_EVENT_SUCCESS, DELETE_EVENT_FAILURE, 
-  EDIT_EVENT_REQUEST, EDIT_EVENT_SUCCESS, EDIT_EVENT_FAILURE,
+import {
+  LOAD_ENTRIES_REQUEST, LOAD_ENTRIES_SUCCESS, LOAD_ENTRIES_FAILURE,
+  ADD_ENTRY_REQUEST, ADD_ENTRY_SUCCESS, ADD_ENTRY_FAILURE,
+  DELETE_ENTRY_REQUEST, DELETE_ENTRY_SUCCESS, DELETE_ENTRY_FAILURE,
+  EDIT_ENTRY_REQUEST, EDIT_ENTRY_SUCCESS, EDIT_ENTRY_FAILURE,
   SET_USER_ID
 } from '../constants/ActionTypes';
 
@@ -19,13 +19,13 @@ export default function pulses(state = initialState, action) {
       return Object.assign({}, state, {
         userId: action.userId
       });
-    case ADD_EVENT_REQUEST:
+    case ADD_ENTRY_REQUEST:
       return Object.assign({}, state, {
         isWorking: true,
         error: null
       });
 
-    case ADD_EVENT_SUCCESS:
+    case ADD_ENTRY_SUCCESS:
       let events = state.events;
       if (events.findIndex(evt => evt.id === action.event.id) === -1) {
         events = [action.event, ...state.events];
@@ -36,13 +36,13 @@ export default function pulses(state = initialState, action) {
         events: events
       });
 
-    case DELETE_EVENT_REQUEST:
+    case DELETE_ENTRY_REQUEST:
       return Object.assign({}, state, {
         isWorking: true,
         error: null
       });
 
-    case DELETE_EVENT_SUCCESS:
+    case DELETE_ENTRY_SUCCESS:
       return Object.assign({}, state, {
         isWorking: false,
         error: null,
@@ -50,13 +50,13 @@ export default function pulses(state = initialState, action) {
         event.id !== action.event.id)
       });
 
-    case EDIT_EVENT_REQUEST:
+    case EDIT_ENTRY_REQUEST:
       return Object.assign({}, state, {
         isWorking: true,
         error: null
       });
 
-    case EDIT_EVENT_SUCCESS:
+    case EDIT_ENTRY_SUCCESS:
       return Object.assign({}, state, {
         isWorking: false,
         error: null,
@@ -67,13 +67,13 @@ export default function pulses(state = initialState, action) {
         )
       });
 
-    case ADD_EVENT_FAILURE: 
-    case DELETE_EVENT_FAILURE: 
-    case EDIT_EVENT_FAILURE:
+    case ADD_ENTRY_FAILURE:
+    case DELETE_ENTRY_FAILURE:
+    case EDIT_ENTRY_FAILURE:
       return Object.assign({}, state, {
         isWorking: false,
         error: action.error,
-      }); 
+      });
 
     default:
       return state;

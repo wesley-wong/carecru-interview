@@ -29,20 +29,20 @@ export function loadEvents() {
 
 export function loadEventsRequest() {
   return {
-    type: types.LOAD_EVENTS_REQUEST
+    type: types.LOAD_ENTRIES_REQUEST
   };
 }
 
 export function loadEventsSuccess(events) {
   return {
-    type: types.LOAD_EVENTS_SUCCESS,
+    type: types.LOAD_ENTRIES_SUCCESS,
     events
   };
 }
 
 export function loadEventsFailure(error) {
   return {
-    type: types.LOAD_EVENTS_FAILURE,
+    type: types.LOAD_ENTRIES_FAILURE,
     error
   };
 }
@@ -72,21 +72,21 @@ export function addJournalEntry(event) {
 
 export function addEventRequest(event) {
   return {
-    type: types.ADD_EVENT_REQUEST,
+    type: types.ADD_ENTRY_REQUEST,
     event
   };
 }
 
 export function addEventSuccess(event) {
   return {
-    type: types.ADD_EVENT_SUCCESS,
+    type: types.ADD_ENTRY_SUCCESS,
     event
   };
 }
 
 export function addEventFailure(error, event) {
   return {
-    type: types.ADD_EVENT_FAILURE,
+    type: types.ADD_ENTRY_FAILURE,
     error
   };
 }
@@ -110,21 +110,21 @@ export function deleteEvent(event) {
 
 export function deleteEventRequest(event) {
   return {
-    type: types.DELETE_EVENT_REQUEST,
+    type: types.DELETE_ENTRY_REQUEST,
     event
   };
 }
 
 export function deleteEventSuccess(event) {
   return {
-    type: types.DELETE_EVENT_SUCCESS,
+    type: types.DELETE_ENTRY_SUCCESS,
     event
   };
 }
 
 export function deleteEventFailure(error, event) {
   return {
-    type: types.DELETE_EVENT_FAILURE,
+    type: types.DELETE_ENTRY_FAILURE,
     error,
     event
   };
@@ -150,21 +150,21 @@ export function editEvent(event) {
 
 export function editEventRequest(event) {
   return {
-    type: types.EDIT_EVENT_REQUEST,
+    type: types.EDIT_ENTRY_REQUEST,
     event
   };
 }
 
 export function editEventSuccess(event) {
   return {
-    type: types.EDIT_EVENT_SUCCESS,
+    type: types.EDIT_ENTRY_SUCCESS,
     event
   };
 }
 
 export function editEventFailure(error, event) {
   return {
-    type: types.EDIT_EVENT_FAILURE,
+    type: types.EDIT_ENTRY_FAILURE,
     error,
     event
   };

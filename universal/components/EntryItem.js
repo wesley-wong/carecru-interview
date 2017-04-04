@@ -60,7 +60,7 @@ export default class EntryItem extends Component {
         null;
       // Added event.title
       element = (
-        <div className='Pulse-entryItem'>
+        <div className='CareCru-entryItem'>
           <p className='rowNumber'>{row+1}.</p>
           <p>
             <h1>

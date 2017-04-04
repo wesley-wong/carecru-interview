@@ -27,15 +27,15 @@ export default class EntryList extends Component {
       );
     } else {
       list = <li>
-        <div className='Pulse-entryItem empty'>
+        <div className='CareCru-entryItem empty'>
           <p>No events recorded!</p>
         </div>
       </li>;
     }
 
     return (
-      <section className='Pulse-entryList'>
-        <div className='Pulse-entryList-summary'>
+      <section className='CareCru-entryList'>
+        <div className='CareCru-entryList-summary'>
           <span>Your Entries</span>
           <span className='val'>{journalEntries.length}</span>
           <span>Avg.</span>
@@ -44,7 +44,7 @@ export default class EntryList extends Component {
           <span className='val'>{cumulative}</span>
         </div>
 
-        <div className='Pulse-entryList-list'>
+        <div className='CareCru-entryList-list'>
           <ul>
             {list}
           </ul>

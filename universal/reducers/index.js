@@ -1,8 +1,8 @@
 // import { combineReducers } from 'redux';
-import pulses from './pulse';
+import entryReducer from './entryReducer';
 
 // const rootReducer = combineReducers({
-//   pulses
+//   entryReducer
 // });
 
-export default pulses;
+export default entryReducer;

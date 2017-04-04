@@ -89,7 +89,7 @@ export default class EntyInput extends Component {
     }, null);
 
     return (
-      <form className='Pulse-entryInput pure-form'>
+      <form className='CareCru-entryInput pure-form'>
         <h1>
           Make a Journal Entry
         </h1>
@@ -101,7 +101,7 @@ export default class EntyInput extends Component {
           </div>
           <label htmlFor='value'>Happiness Level</label>
           <input className={className} type='range' id='value' min='-10' max='10' value={this.state.value} onChange={::this.handleValueChange} />
-          <span className='Pulse-entryInput-value'>{this.state.value}</span>
+          <span className='CareCru-entryInput-value'>{this.state.value}</span>
           <button type='submit' className='save pure-button' onClick={::this.handleSubmit}>{saveText}</button>
         </fieldset>
         <div>

@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 
 import Header from '../components/Header';
 import EntryList from '../components/EntryList';
-import EntryTicker from '../components/EntryTicker';
 import EntryInput from '../components/EntryInput';
 
 import * as CareCruActions from '../actions/CareCruActions';
@@ -28,9 +27,9 @@ class CareCruApp extends Component {
 
     // changed onSubmit function name
     return (
-      <div className="Pulse-Container">
+      <div className="CareCru-Container">
         <Header/>
-        <section className='Pulse-addEventForm'>
+        <section className='CareCru-addEventForm'>
           <EntryInput onSubmit={this.props.addJournalEntry} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
         {this.props.journalEntries}

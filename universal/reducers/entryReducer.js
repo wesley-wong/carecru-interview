@@ -13,7 +13,7 @@ const initialState = {
   events: []
 };
 
-export default function pulses(state = initialState, action) {
+export default function entryReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER_ID:
       return Object.assign({}, state, {

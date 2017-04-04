@@ -11,7 +11,7 @@ export default class AsyncBar extends Component {
     let error = (this.props.error) ? this.renderError() : null;
 
     return (
-      <section className='Pulse-async'>
+      <section className='CareCru-async'>
         {spinner}
         {error}
       </section>
@@ -20,7 +20,7 @@ export default class AsyncBar extends Component {
 
   renderSpinner() {
     return (
-      <div className="Pulse-async-spinner">
+      <div className="CareCru-async-spinner">
         Loading…
       </div>
     );
@@ -28,7 +28,7 @@ export default class AsyncBar extends Component {
 
   renderError() {
     return (
-      <p className="Pulse-async-error">
+      <p className="CareCru-async-error">
         {this.props.error}
       </p>
     );

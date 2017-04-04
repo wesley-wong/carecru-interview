@@ -17,8 +17,8 @@ export default class EntryTicker extends Component {
     let editable = false;
 
     return (
-      <section className='Pulse-entryList'>
-        <div className='Pulse-entryList-summary'>
+      <section className='CareCru-entryList'>
+        <div className='CareCru-entryList-summary'>
           <span>Other Events</span>
           <span className='val'>{otherEvents.length}</span>
           <span>Avg.</span>
@@ -26,7 +26,7 @@ export default class EntryTicker extends Component {
           <span>Cum.</span>
           <span className='val'>{cumulative}</span>
         </div>
-        <div className='Pulse-entryList-list'>
+        <div className='CareCru-entryList-list'>
           <ul>
             {otherEvents.slice(0,this.props.length).map((event, key) =>
               <EntryItem key={key} row={key} id={event.id} event={event} editable={editable} />

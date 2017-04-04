@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { VALUE_CLASSES } from '../constants/ActionTypes.js';
 
-export default class EventInput extends Component {
+export default class EntyInput extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     userId: PropTypes.string.isRequired,
@@ -12,6 +12,7 @@ export default class EventInput extends Component {
 
   constructor(props, context) {
     super(props, context);
+    // Added title, wordCount & sentiment to state
     this.state = {
       errors: [],
       title: this.props.title || '',
@@ -37,6 +38,7 @@ export default class EventInput extends Component {
     if (errors && errors.length > 0) {
       this.setState({errors: errors});
     } else {
+      // Added title, sentiment & wordCount to submit
       this.props.onSubmit({
         title: this.state.title,
         text: this.state.text,
@@ -87,7 +89,7 @@ export default class EventInput extends Component {
     }, null);
 
     return (
-      <form className='Pulse-eventInput pure-form'>
+      <form className='Pulse-entryInput pure-form'>
         <h1>
           Make a Journal Entry
         </h1>
@@ -99,7 +101,7 @@ export default class EventInput extends Component {
           </div>
           <label htmlFor='value'>Happiness Level</label>
           <input className={className} type='range' id='value' min='-10' max='10' value={this.state.value} onChange={::this.handleValueChange} />
-          <span className='Pulse-eventInput-value'>{this.state.value}</span>
+          <span className='Pulse-entryInput-value'>{this.state.value}</span>
           <button type='submit' className='save pure-button' onClick={::this.handleSubmit}>{saveText}</button>
         </fieldset>
         <div>

@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import moment from 'moment';
-import EventInput from './EventInput';
+import EntryInput from './EntryInput';
 
 export default class EventItem extends Component {
   static propTypes = {
@@ -42,8 +42,9 @@ export default class EventItem extends Component {
     let modified = (event.updated) ? event.updated : event.created;
 
     if (this.state.editing) {
+    // EntryInput now passes down title, wordCount & sentiment
       element = (
-        <EventInput text={event.text}
+        <EntryInput text={event.text}
                     title={event.title}
                     value={event.value}
                     wordCount={event.wordCount}
@@ -57,6 +58,7 @@ export default class EventItem extends Component {
       let del = (this.props.editable) ?
         <button className='destroy pure-button' onClick={ () => deleteEvent(event) } /> :
         null;
+      // Added event.title
       element = (
         <div className='Pulse-eventItem'>
           <p className='rowNumber'>{row+1}.</p>

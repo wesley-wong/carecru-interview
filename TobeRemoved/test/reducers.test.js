@@ -30,11 +30,11 @@ describe('Reducers', () => {
     });
   });
 
-  describe('addEvent', () => {
+  describe('addEntry', () => {
     describe('request', () => {
       it('should set isWorking to true', () => {
         let initialStateForTest = { isWorking: false };
-        let action = actions.addEventRequest();
+        let action = actions.addEntryRequest();
 
         expect(initialStateForTest.isWorking).to.be.false;
 
@@ -44,44 +44,44 @@ describe('Reducers', () => {
     });
 
     describe('success', () => {
-      it('should set isWorking to false and add event to events', () => {
-        let events = [
+      it('should set isWorking to false and add entry to entries', () => {
+        let entries = [
           { id: 22, name: 'Entry', value: 20 }
         ];
-        let initialStateForTest = { isWorking: true, events: events };
-        let event = { id: 25, name: 'Another Entry', value: 50 };
+        let initialStateForTest = { isWorking: true, entries: entries };
+        let entry = { id: 25, name: 'Another Entry', value: 50 };
 
-        let action = actions.addEventSuccess(event);
+        let action = actions.addEntrySuccess(entry);
 
         expect(initialStateForTest.isWorking).to.be.true;
-        expect(initialStateForTest.events.length).to.equal(events.length);
+        expect(initialStateForTest.entries.length).to.equal(entries.length);
 
 
         let state = reducer(initialStateForTest, action);
         expect(state.isWorking).to.be.false;
-        expect(state.events.length).to.equal(events.length + 1);
+        expect(state.entries.length).to.equal(entries.length + 1);
       });
     });
 
     describe('failure', () => {
-      it('should set isWorking to false and error and not change events', () => {
-        let events = [
+      it('should set isWorking to false and error and not change entries', () => {
+        let entries = [
           { id: 22, name: 'Entry', value: 20 }
         ];
-        let initialStateForTest = { isWorking: true, events: events, error: null };
+        let initialStateForTest = { isWorking: true, entries: entries, error: null };
         let error = 'some error';
 
-        let action = actions.addEventFailure(error);
+        let action = actions.addEntryFailure(error);
 
         expect(initialStateForTest.isWorking).to.be.true;
         expect(initialStateForTest.error).to.be.null;
-        expect(initialStateForTest.events.length).to.equal(events.length);
+        expect(initialStateForTest.entries.length).to.equal(entries.length);
 
 
         let state = reducer(initialStateForTest, action);
         expect(state.isWorking).to.be.false;
         expect(state.error).to.equal(error);
-        expect(state.events.length).to.equal(events.length);
+        expect(state.entries.length).to.equal(entries.length);
       });
     });
   });

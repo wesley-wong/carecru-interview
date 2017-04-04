@@ -10,7 +10,7 @@ var expect = chai.expect;
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { setUserId, loadEvents, __RewireAPI__ as actions } from '../universal/actions/CareCruActions.js';
+import { setUserId, loadEntries, __RewireAPI__ as actions } from '../universal/actions/CareCruActions.js';
 import * as types from '../universal/constants/ActionTypes';
 
 describe('Actions', () => {
@@ -38,7 +38,7 @@ describe('Actions', () => {
   /**
    * Example of writing a test on an asyncronous action creator
    */
-  describe('loadEvents', () => {
+  describe('loadEntries', () => {
     const mockStore = configureStore([thunk]);
     it('should trigger a LOAD_ENTRIES_REQUEST and LOAD_ENTRIES_SUCCESS action when succesful', () => {
       let requestMock = {
@@ -55,13 +55,13 @@ describe('Actions', () => {
 
       let expectedActions = [
         { type: 'LOAD_ENTRIES_REQUEST' },
-        { type: 'LOAD_ENTRIES_SUCCESS', events: [ { name: 'Awesome', value: 54 } ] }
+        { type: 'LOAD_ENTRIES_SUCCESS', entries: [ { name: 'Awesome', value: 54 } ] }
       ];
 
-      let initialState = {CareCruApp: { events: [], userId: 'baseUser'} };
+      let initialState = {CareCruApp: { entries: [], userId: 'baseUser'} };
       let store = mockStore(initialState);
 
-      store.dispatch(loadEvents());
+      store.dispatch(loadEntries());
 
       const actualActions = store.getActions();
 
@@ -85,10 +85,10 @@ describe('Actions', () => {
         { type: 'LOAD_ENTRIES_FAILURE', error: error }
       ];
 
-      let initialState = {CareCruApp: { events: [], userId: 'baseUser'} };
+      let initialState = {CareCruApp: { entries: [], userId: 'baseUser'} };
       let store = mockStore(initialState);
 
-      store.dispatch(loadEvents());
+      store.dispatch(loadEntries());
 
       const actualActions = store.getActions();
 

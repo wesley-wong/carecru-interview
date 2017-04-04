@@ -8,21 +8,21 @@ import * as CareCruActions from '../actions/CareCruActions';
 
 class journalEntries extends Component {
   static propTypes = {
-    editEvent: React.PropTypes.func.isRequired,
-    deleteEvent: React.PropTypes.func.isRequired,
+    editEntry: React.PropTypes.func.isRequired,
+    deleteEntry: React.PropTypes.func.isRequired,
     userId: React.PropTypes.string,
-    events: React.PropTypes.array
+    entries: React.PropTypes.array
   };
 
   render() {
     let actions = {
-      editEvent: this.props.editEvent,
-      deleteEvent: this.props.deleteEvent
+      editEntry: this.props.editEntry,
+      deleteEntry: this.props.deleteEntry
     };
 
 
     return (
-      <EntryList events={this.props.events} userId={this.props.userId} actions={actions} />
+      <EntryList entries={this.props.entries} userId={this.props.userId} actions={actions} />
     );
   }
 }
@@ -32,7 +32,7 @@ class journalEntries extends Component {
  */
 export default connect(
   state => ({
-    events: state.CareCruApp.events,
+    entries: state.CareCruApp.entries,
     userId: state.CareCruApp.userId
   }),
   dispatch => bindActionCreators(CareCruActions, dispatch)

@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 import request from 'superagent';
 
 const serverUrl = '';
-const eventsUrl = `${serverUrl}/api/0/events`;
+const entriesUrl = `${serverUrl}/api/0/entries`;
 
 export function setUserId(userId) {
   return {
@@ -11,36 +11,36 @@ export function setUserId(userId) {
   };
 }
 
-export function loadEvents() {
+export function loadEntries() {
   return dispatch => {
-    dispatch(loadEventsRequest());
+    dispatch(loadEntriesRequest());
     return request
-      .get(eventsUrl)
+      .get(entriesUrl)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) {
-          dispatch(loadEventsFailure(err));
+          dispatch(loadEntriesFailure(err));
         } else {
-          dispatch(loadEventsSuccess(res.body));
+          dispatch(loadEntriesSuccess(res.body));
         }
       });
   };
 }
 
-export function loadEventsRequest() {
+export function loadEntriesRequest() {
   return {
     type: types.LOAD_ENTRIES_REQUEST
   };
 }
 
-export function loadEventsSuccess(events) {
+export function loadEntriesSuccess(entries) {
   return {
     type: types.LOAD_ENTRIES_SUCCESS,
-    events
+    entries
   };
 }
 
-export function loadEventsFailure(error) {
+export function loadEntriesFailure(error) {
   return {
     type: types.LOAD_ENTRIES_FAILURE,
     error
@@ -48,124 +48,124 @@ export function loadEventsFailure(error) {
 }
 
 // Returns a thunk that attempts to add journal entries
-export function addJournalEntry(event) {
+export function addJournalEntry(entry) {
   return dispatch => {
     // Notify the store that a request has been sent
-    dispatch(addEventRequest(event));
+    dispatch(addEntryRequest(entry));
 
     // Add the Journal Entry to the API
     return request
-      .post(eventsUrl)
-      .send(event)
+      .post(entriesUrl)
+      .send(entry)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) {
           // Notify the store that there has been an error
-          dispatch(addEventFailure(err, event));
+          dispatch(addEntryFailure(err, entry));
         } else {
           // Notify the store of a successful
-          dispatch(addEventSuccess(res.body));
+          dispatch(addEntrySuccess(res.body));
         }
       });
   };
 }
 
-export function addEventRequest(event) {
+export function addEntryRequest(entry) {
   return {
     type: types.ADD_ENTRY_REQUEST,
-    event
+    entry
   };
 }
 
-export function addEventSuccess(event) {
+export function addEntrySuccess(entry) {
   return {
     type: types.ADD_ENTRY_SUCCESS,
-    event
+    entry
   };
 }
 
-export function addEventFailure(error, event) {
+export function addEntryFailure(error, entry) {
   return {
     type: types.ADD_ENTRY_FAILURE,
     error
   };
 }
 
-export function deleteEvent(event) {
+export function deleteEntry(entry) {
   return dispatch => {
-    dispatch(deleteEventRequest(event));
+    dispatch(deleteEntryRequest(entry));
 
     return request
-      .del(eventsUrl + '/' + event.id)
+      .del(entriesUrl + '/' + entry.id)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) {
-          dispatch(deleteEventFailure(err, event));
+          dispatch(deleteEntryFailure(err, entry));
         } else {
-          dispatch(deleteEventSuccess(res.body));
+          dispatch(deleteEntrySuccess(res.body));
         }
       });
   };
 }
 
-export function deleteEventRequest(event) {
+export function deleteEntryRequest(entry) {
   return {
     type: types.DELETE_ENTRY_REQUEST,
-    event
+    entry
   };
 }
 
-export function deleteEventSuccess(event) {
+export function deleteEntrySuccess(entry) {
   return {
     type: types.DELETE_ENTRY_SUCCESS,
-    event
+    entry
   };
 }
 
-export function deleteEventFailure(error, event) {
+export function deleteEntryFailure(error, entry) {
   return {
     type: types.DELETE_ENTRY_FAILURE,
     error,
-    event
+    entry
   };
 }
 
-export function editEvent(event) {
+export function editEntry(entry) {
   return dispatch => {
-    dispatch(editEventRequest(event));
+    dispatch(editEntryRequest(entry));
 
     return request
-      .post(eventsUrl + '/' + event.id)
-      .send(event)
+      .post(entriesUrl + '/' + entry.id)
+      .send(entry)
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) {
-          dispatch(editEventFailure(err, event));
+          dispatch(editEntryFailure(err, entry));
         } else {
-          dispatch(editEventSuccess(res.body));
+          dispatch(editEntrySuccess(res.body));
         }
       });
   };
 }
 
-export function editEventRequest(event) {
+export function editEntryRequest(entry) {
   return {
     type: types.EDIT_ENTRY_REQUEST,
-    event
+    entry
   };
 }
 
-export function editEventSuccess(event) {
+export function editEntrySuccess(entry) {
   return {
     type: types.EDIT_ENTRY_SUCCESS,
-    event
+    entry
   };
 }
 
-export function editEventFailure(error, event) {
+export function editEntryFailure(error, entry) {
   return {
     type: types.EDIT_ENTRY_FAILURE,
     error,
-    event
+    entry
   };
 }

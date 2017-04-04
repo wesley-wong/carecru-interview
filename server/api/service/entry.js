@@ -16,13 +16,13 @@ export function liveUpdates(io) {
       console.log('Listening for changes...');
       cursor.each((err, change) => {
         console.log('Change detected', change);
-        io.emit('event-change', change);
+        io.emit('entry-change', change);
       });
     });
   });
 }
 
-export function getEvents() {
+export function getEntries() {
   return connect()
   .then(conn => {
     return r
@@ -32,33 +32,33 @@ export function getEvents() {
   });
 }
 
-export function addEvent(event) {
+export function addEntry(entry) {
   return connect()
   .then(conn => {
-    event.created = new Date();
-    event.text = xss(event.text);
+    entry.created = new Date();
+    entry.text = xss(entry.text);
     return r
     .table('entries')
-    .insert(event).run(conn)
+    .insert(entry).run(conn)
     .then(response => {
-      return Object.assign({}, event, {id: response.generated_keys[0]});
+      return Object.assign({}, entry, {id: response.generated_keys[0]});
     });
   });
 }
 
-export function editEvent(id, event) {
-  event.updated = new Date();
-  event.text = xss(event.text);
+export function editEntry(id, entry) {
+  entry.updated = new Date();
+  entry.text = xss(entry.text);
   return connect()
   .then(conn => {
     return r
     .table('entries')
-    .get(id).update(event).run(conn)
-    .then(() => event);
+    .get(id).update(entry).run(conn)
+    .then(() => entry);
   });
 }
 
-export function deleteEvent(id) {
+export function deleteEntry(id) {
   return connect()
   .then(conn => {
     return r

@@ -6,10 +6,10 @@ export default class EntryItem extends Component {
   static propTypes = {
     id: PropTypes.any.isRequired,
     row: PropTypes.number.isRequired,
-    event: PropTypes.object.isRequired,
+    entry: PropTypes.object.isRequired,
     editable: PropTypes.bool,
-    editEvent: PropTypes.func,
-    deleteEvent: PropTypes.func
+    editEntry: PropTypes.func,
+    deleteEntry: PropTypes.func
   };
 
   constructor(props, context){
@@ -25,55 +25,55 @@ export default class EntryItem extends Component {
     }
   }
 
-  handleSave(event) {
-    if (event.text.length === 0) {
-      this.props.deleteEvent(event);
+  handleSave(entry) {
+    if (entry.text.length === 0) {
+      this.props.deleteEntry(entry);
     } else {
-      this.props.editEvent(event);
+      this.props.editEntry(entry);
     }
     this.setState({ editing: false });
   }
 
   render() {
-    const { row, id, event, editEvent, deleteEvent } = this.props;
+    const { row, id, entry, editEntry, deleteEntry } = this.props;
     console.log('this props', this.props);
-    console.log('evevnt', event);
+    console.log('evevnt', entry);
     let element, className = (row % 2 === 0) ? 'even' : 'odd';
-    let modified = (event.updated) ? event.updated : event.created;
+    let modified = (entry.updated) ? entry.updated : entry.created;
 
     if (this.state.editing) {
     // EntryInput now passes down title, wordCount & sentiment
       element = (
-        <EntryInput text={event.text}
-                    title={event.title}
-                    value={event.value}
-                    wordCount={event.wordCount}
-                    sentiment={event.sentiment}
-                    userId={event.userId}
+        <EntryInput text={entry.text}
+                    title={entry.title}
+                    value={entry.value}
+                    wordCount={entry.wordCount}
+                    sentiment={entry.sentiment}
+                    userId={entry.userId}
                     editing={this.state.editing}
                     valueLabel='Rating'
-                    onSubmit={ (event) => this.handleSave(Object.assign({}, event, { id: id })) } />
+                    onSubmit={ (entry) => this.handleSave(Object.assign({}, entry, { id: id })) } />
       );
     } else {
       let del = (this.props.editable) ?
-        <button className='destroy pure-button' onClick={ () => deleteEvent(event) } /> :
+        <button className='destroy pure-button' onClick={ () => deleteEntry(entry) } /> :
         null;
-      // Added event.title
+      // Added entry.title
       element = (
         <div className='CareCru-entryItem'>
           <p className='rowNumber'>{row+1}.</p>
           <p>
             <h1>
-              {event.title}
+              {entry.title}
             </h1>
           </p>
           <p className='title' onClick={::this.handleClick}>
-            {event.text}
+            {entry.text}
 
           </p>
           {del}
           <p className='created'>{moment(modified).fromNow()}</p>
-          <p className='outcome'>{event.sentiment}</p>
+          <p className='outcome'>{entry.sentiment}</p>
         </div>
       );
     }

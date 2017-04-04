@@ -10,26 +10,26 @@ import * as CareCruActions from '../actions/CareCruActions';
 
 class CareCruApp extends Component {
   static propTypes = {
-    addEvent: React.PropTypes.func.isRequired,
-    editEvent: React.PropTypes.func.isRequired,
-    deleteEvent: React.PropTypes.func.isRequired,
+    addEntry: React.PropTypes.func.isRequired,
+    editEntry: React.PropTypes.func.isRequired,
+    deleteEntry: React.PropTypes.func.isRequired,
     userId: React.PropTypes.string,
-    events: React.PropTypes.array,
+    entries: React.PropTypes.array,
     isWorking: React.PropTypes.bool,
     error: React.PropTypes.any,
   };
 
   render() {
     // let actions = {
-    //   editEvent: this.props.editEvent,
-    //   deleteEvent: this.props.deleteEvent
+    //   editEntry: this.props.editEntry,
+    //   deleteEntry: this.props.deleteEntry
     // };
 
     // changed onSubmit function name
     return (
       <div className="CareCru-Container">
         <Header/>
-        <section className='CareCru-addEventForm'>
+        <section className='CareCru-addEntryForm'>
           <EntryInput onSubmit={this.props.addJournalEntry} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
         {this.props.journalEntries}
@@ -43,7 +43,7 @@ class CareCruApp extends Component {
  */
 export default connect(
   state => ({
-    events: state.CareCruApp.events,
+    entries: state.CareCruApp.entries,
     userId: state.CareCruApp.userId,
     isWorking: state.CareCruApp.isWorking,
     error: state.CareCruApp.error

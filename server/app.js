@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
 
-import * as eventService from './api/service/event';
+import * as entryService from './api/service/entry';
 import configureStore from '../universal/store';
 import routes from '../universal/routes';
 import DevTools from '../universal/containers/devTools';
@@ -12,9 +12,9 @@ const isDev = (process.env.NODE_ENV !== 'production');
 
 export function handleRender(req, res) {
   console.log(' [x] Request for', req.url);
-  eventService.getEvents()
-  .then(initialEvents => {
-    let initialState = {CareCruApp: { events: initialEvents, userId: 'baseUser'} };
+  entryService.getEntries()
+  .then(initialEntries => {
+    let initialState = {CareCruApp: { entries: initialEntries, userId: 'baseUser'} };
 
     const store = configureStore(req, initialState);
 

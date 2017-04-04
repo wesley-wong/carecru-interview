@@ -6,15 +6,15 @@ import EntryTicker from '../components/EntryTicker';
 
 import * as CareCruActions from '../actions/CareCruActions';
 
-class OtherEvents extends Component {
+class OtherEntries extends Component {
   static propTypes = {
     userId: React.PropTypes.string,
-    events: React.PropTypes.array
+    entries: React.PropTypes.array
   };
 
   render() {
     return (
-      <EntryTicker events={this.props.events} userId={this.props.userId} length={3} />
+      <EntryTicker entries={this.props.entries} userId={this.props.userId} length={3} />
     );
   }
 }
@@ -24,8 +24,8 @@ class OtherEvents extends Component {
  */
 export default connect(
   state => ({
-    events: state.CareCruApp.events,
+    entries: state.CareCruApp.entries,
     userId: state.CareCruApp.userId
   }),
   dispatch => bindActionCreators(CareCruActions, dispatch)
-)(OtherEvents);
+)(OtherEntries);

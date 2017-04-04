@@ -3,32 +3,32 @@ import EntryItem from './EntryItem';
 
 export default class EntryList extends Component {
   static propTypes = {
-    events: PropTypes.array.isRequired,
+    entries: PropTypes.array.isRequired,
     userId: PropTypes.string.isRequired,
     actions: PropTypes.object.isRequired
   };
 
   render() {
-    const { events, userId, actions } = this.props;
+    const { entries, userId, actions } = this.props;
 
-    const journalEntries = events.filter(row => row.userId === userId );
+    const journalEntries = entries.filter(row => row.userId === userId );
     journalEntries.sort((a, b) => {return b.value - a.value})
     console.log(journalEntries);
     let list;
     let editable = true;
 
-    let cumulative = journalEntries.reduce((x, event) =>  event.sentiment + x, 0);
+    let cumulative = journalEntries.reduce((x, entry) =>  entry.sentiment + x, 0);
     let average = (journalEntries.length > 0) ? Math.round(cumulative/journalEntries.length): 0;
 
 
     if (journalEntries.length > 0) {
-      list = journalEntries.map((event, key) =>
-        <EntryItem key={key} row={key} id={event.id} editable={editable} event={event} {...actions} />
+      list = journalEntries.map((entry, key) =>
+        <EntryItem key={key} row={key} id={entry.id} editable={editable} entry={entry} {...actions} />
       );
     } else {
       list = <li>
         <div className='CareCru-entryItem empty'>
-          <p>No events recorded!</p>
+          <p>No entries recorded!</p>
         </div>
       </li>;
     }

@@ -33,7 +33,7 @@ class CareCruApp extends Component {
         <section className='Pulse-addEventForm'>
           <EntryInput onSubmit={this.props.addJournalEntry} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
         </section>
-        {this.props.myEvents}
+        {this.props.journalEntries}
       </div>
     );
   }

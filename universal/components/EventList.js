@@ -11,18 +11,18 @@ export default class EventList extends Component {
   render() {
     const { events, userId, actions } = this.props;
 
-    const myEvents = events.filter(row => row.userId === userId );
-    myEvents.sort((a, b) => {return b.value - a.value})
-    console.log(myEvents);
+    const journalEntries = events.filter(row => row.userId === userId );
+    journalEntries.sort((a, b) => {return b.value - a.value})
+    console.log(journalEntries);
     let list;
     let editable = true;
 
-    let cumulative = myEvents.reduce((x, event) =>  event.sentiment + x, 0);
-    let average = (myEvents.length > 0) ? Math.round(cumulative/myEvents.length): 0;
+    let cumulative = journalEntries.reduce((x, event) =>  event.sentiment + x, 0);
+    let average = (journalEntries.length > 0) ? Math.round(cumulative/journalEntries.length): 0;
 
 
-    if (myEvents.length > 0) {
-      list = myEvents.map((event, key) =>
+    if (journalEntries.length > 0) {
+      list = journalEntries.map((event, key) =>
         <EventItem key={key} row={key} id={event.id} editable={editable} event={event} {...actions} />
       );
     } else {
@@ -37,7 +37,7 @@ export default class EventList extends Component {
       <section className='Pulse-eventList'>
         <div className='Pulse-eventList-summary'>
           <span>Your Entries</span>
-          <span className='val'>{myEvents.length}</span>
+          <span className='val'>{journalEntries.length}</span>
           <span>Avg.</span>
           <span className='val'>{average}</span>
           <span>Cum.</span>

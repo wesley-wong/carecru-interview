@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import CareCruApp from './containers/CareCruApp';
-import MyEvents from './containers/MyEvents';
+import journalEntries from './containers/journalEntries';
 
 export default (
   <Route path='/' component={CareCruApp}>
-    <IndexRoute components={{myEvents: MyEvents}} />
+    <IndexRoute components={{journalEntries: journalEntries}} />
   </Route>
 );

@@ -6,7 +6,7 @@ import EventList from '../components/EventList';
 
 import * as PulseActions from '../actions/PulseActions';
 
-class MyEvents extends Component {
+class journalEntries extends Component {
   static propTypes = {
     editEvent: React.PropTypes.func.isRequired,
     deleteEvent: React.PropTypes.func.isRequired,
@@ -36,4 +36,4 @@ export default connect(
     userId: state.CareCruApp.userId
   }),
   dispatch => bindActionCreators(PulseActions, dispatch)
-)(MyEvents);
+)(journalEntries);

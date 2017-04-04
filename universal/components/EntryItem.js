@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import moment from 'moment';
 import EntryInput from './EntryInput';
 
-export default class EventItem extends Component {
+export default class EntryItem extends Component {
   static propTypes = {
     id: PropTypes.any.isRequired,
     row: PropTypes.number.isRequired,
@@ -60,7 +60,7 @@ export default class EventItem extends Component {
         null;
       // Added event.title
       element = (
-        <div className='Pulse-eventItem'>
+        <div className='Pulse-entryItem'>
           <p className='rowNumber'>{row+1}.</p>
           <p>
             <h1>

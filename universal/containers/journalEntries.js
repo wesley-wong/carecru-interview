@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import EventList from '../components/EventList';
+import EntryList from '../components/EntryList';
 
 import * as PulseActions from '../actions/PulseActions';
 
@@ -22,7 +22,7 @@ class journalEntries extends Component {
 
 
     return (
-      <EventList events={this.props.events} userId={this.props.userId} actions={actions} />
+      <EntryList events={this.props.events} userId={this.props.userId} actions={actions} />
     );
   }
 }

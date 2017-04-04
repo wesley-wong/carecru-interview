@@ -1,7 +1,7 @@
 import React, {PropTypes, Component} from 'react';
-import EventItem from './EventItem';
+import EntryItem from './EntryItem';
 
-export default class EventList extends Component {
+export default class EntryList extends Component {
   static propTypes = {
     events: PropTypes.array.isRequired,
     userId: PropTypes.string.isRequired,
@@ -23,19 +23,19 @@ export default class EventList extends Component {
 
     if (journalEntries.length > 0) {
       list = journalEntries.map((event, key) =>
-        <EventItem key={key} row={key} id={event.id} editable={editable} event={event} {...actions} />
+        <EntryItem key={key} row={key} id={event.id} editable={editable} event={event} {...actions} />
       );
     } else {
       list = <li>
-        <div className='Pulse-eventItem empty'>
+        <div className='Pulse-entryItem empty'>
           <p>No events recorded!</p>
         </div>
       </li>;
     }
 
     return (
-      <section className='Pulse-eventList'>
-        <div className='Pulse-eventList-summary'>
+      <section className='Pulse-entryList'>
+        <div className='Pulse-entryList-summary'>
           <span>Your Entries</span>
           <span className='val'>{journalEntries.length}</span>
           <span>Avg.</span>
@@ -44,7 +44,7 @@ export default class EventList extends Component {
           <span className='val'>{cumulative}</span>
         </div>
 
-        <div className='Pulse-eventList-list'>
+        <div className='Pulse-entryList-list'>
           <ul>
             {list}
           </ul>

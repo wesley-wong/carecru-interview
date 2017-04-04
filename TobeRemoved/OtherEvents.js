@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import EventTicker from '../components/EventTicker';
+import EntryTicker from '../components/EntryTicker';
 
 import * as PulseActions from '../actions/PulseActions';
 
@@ -14,7 +14,7 @@ class OtherEvents extends Component {
 
   render() {
     return (
-      <EventTicker events={this.props.events} userId={this.props.userId} length={3} />
+      <EntryTicker events={this.props.events} userId={this.props.userId} length={3} />
     );
   }
 }

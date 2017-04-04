@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Header from '../components/Header';
-import EventList from '../components/EventList';
-import EventTicker from '../components/EventTicker';
+import EntryList from '../components/EntryList';
+import EntryTicker from '../components/EntryTicker';
 import EntryInput from '../components/EntryInput';
 
 import * as PulseActions from '../actions/PulseActions';

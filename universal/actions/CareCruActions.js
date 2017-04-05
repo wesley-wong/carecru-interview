@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import request from 'superagent';
+import axios from 'axios';
 
 const serverUrl = '';
 const entriesUrl = `${serverUrl}/api/0/entries`;
@@ -10,19 +10,20 @@ export function setUserId(userId) {
     userId
   };
 }
-
+// Returns a thunk that attempts to load journal entries
 export function loadEntries() {
+  // Notify the store that a request has been made
   return dispatch => {
     dispatch(loadEntriesRequest());
-    return request
+    return axios
       .get(entriesUrl)
-      .set('Accept', 'application/json')
-      .end((err, res) => {
-        if (err) {
-          dispatch(loadEntriesFailure(err));
-        } else {
-          dispatch(loadEntriesSuccess(res.body));
-        }
+      .then(res => {
+        // Notify the store of a successful response
+        dispatch(loadEntriesSuccess(res.body));
+      })
+      .catch(err => {
+        // Notfiy the store of a fail response
+        dispatch(loadEntriesFailure(err));
       });
   };
 }
@@ -50,22 +51,19 @@ export function loadEntriesFailure(error) {
 // Returns a thunk that attempts to add journal entries
 export function addJournalEntry(entry) {
   return dispatch => {
-    // Notify the store that a request has been sent
+    // Notify the store that an axios request has been sent
     dispatch(addEntryRequest(entry));
 
     // Add the Journal Entry to the API
-    return request
-      .post(entriesUrl)
-      .send(entry)
-      .set('Accept', 'application/json')
-      .end((err, res) => {
-        if (err) {
-          // Notify the store that there has been an error
-          dispatch(addEntryFailure(err, entry));
-        } else {
-          // Notify the store of a successful
-          dispatch(addEntrySuccess(res.body));
-        }
+    return axios
+      .post(entriesUrl, entry)
+      .then(res => {
+        // Notify the store of a successful
+        dispatch(addEntrySuccess(res.body));
+      })
+      .catch(err => {
+        // Notify the store that there has been an error
+        dispatch(addEntryFailure(err, entry));
       });
   };
 }
@@ -91,19 +89,21 @@ export function addEntryFailure(error, entry) {
   };
 }
 
+// Returns a thunk that attempts to delete a journal entry
 export function deleteEntry(entry) {
+  // Notify the store that a request has been made
   return dispatch => {
     dispatch(deleteEntryRequest(entry));
 
-    return request
-      .del(entriesUrl + '/' + entry.id)
-      .set('Accept', 'application/json')
-      .end((err, res) => {
-        if (err) {
-          dispatch(deleteEntryFailure(err, entry));
-        } else {
-          dispatch(deleteEntrySuccess(res.body));
-        }
+    return axios
+      .delete(entriesUrl + '/' + entry.id)
+      .then(res => {
+        // Notify store of a success
+        dispatch(deleteEntrySuccess(res.body));
+      })
+      .catch(err => {
+        // Notify store of a failure
+        dispatch(deleteEntryFailure(err, entry));
       });
   };
 }
@@ -130,20 +130,20 @@ export function deleteEntryFailure(error, entry) {
   };
 }
 
+// Returns a thunk that attempts to edit an entry
 export function editEntry(entry) {
+  // Notifies the store that a request has been made
   return dispatch => {
     dispatch(editEntryRequest(entry));
-
-    return request
-      .post(entriesUrl + '/' + entry.id)
-      .send(entry)
-      .set('Accept', 'application/json')
-      .end((err, res) => {
-        if (err) {
-          dispatch(editEntryFailure(err, entry));
-        } else {
-          dispatch(editEntrySuccess(res.body));
-        }
+    return axios
+      .post(entriesUrl + '/' + entry.id, entry)
+      .then((err, res) => {
+        // Notifies the store of a sucess
+        dispatch(editEntrySuccess(res.body));
+      })
+      .catch(err => {
+        // Notifies the store of a failure
+        dispatch(editEntryFailure(err, entry));
       });
   };
 }

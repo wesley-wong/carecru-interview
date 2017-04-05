@@ -1,7 +1,7 @@
 {
-  "name": "3ree",
+  "name": "CareCru Interview",
   "version": "1.0.0",
-  "description": "An example universal JS application written with the 3REE stack, React + Redux + RethinkDB + Express.",
+  "description": "An project for a tech interview using 3REE stack, React + Redux + RethinkDB + Express.",
   "main": "server.babel.js",
   "scripts": {
     "build:prod": "NODE_ENV=production webpack",

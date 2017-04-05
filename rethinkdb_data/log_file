@@ -279,3 +279,8 @@
 2017-04-04T18:11:49.110043000 0.175670s notice: Server ready, "Wesleys_MBP_30a" 820dd0a2-a469-434c-82c7-7aefa80fc98b
 2017-04-04T18:11:50.265118000 1.330728s info: Table 77299841-aeae-4a45-acac-4772c1e66c45: Starting a new Raft election for term 7.
 2017-04-04T18:11:50.284859000 1.350469s info: Table 77299841-aeae-4a45-acac-4772c1e66c45: This server is Raft leader for term 7. Latest log index is 18.
+2017-04-04T18:19:51.474587000 482.532699s notice: Server got SIGINT from pid 1703, uid 501; shutting down...
+2017-04-04T18:19:51.474775000 482.532886s notice: Shutting down client connections...
+2017-04-04T18:19:51.474884000 482.532996s notice: All client connections closed.
+2017-04-04T18:19:51.474890000 482.533001s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-04-04T18:19:51.477527000 482.535640s notice: Storage engine shut down.

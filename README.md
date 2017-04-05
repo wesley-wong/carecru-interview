@@ -1,72 +1,76 @@
-## 3REE
-[![Circle CI](https://circleci.com/gh/GordyD/3ree.svg?style=svg)](https://circleci.com/gh/GordyD/3ree)
+# Carecru Tech Interview
 
-An example universal JS application written with the 3REE stack, *Re*act + *Re*dux + *Re*thinkDB + *E*xpress. A stack for building apps, front and back end, with just Javascript.
+### How to install:
 
-This project was initially conceived to experiment with using these technologies in conjunction with one-another. I have written a [blog](http://blog.workshape.io/the-3ree-stack-react-redux-rethinkdb-express-js/) that relates to this codebase.
+  1. ``npm install``
 
-![Screenshot](http://i.imgur.com/RiFteKV.png)
+  2. ``rethinkdb`` (assuming you have rethinkdb installed globally)
 
-This project is useful for:
- - seeing how to build a Universal Javascript application
- - understanding how to handle asyncronousity in Redux action creators
- - seeing how you can use Socket.io with Redux
- - building your own Redux powered application
- - forking so that you can build your own 3REE stack app!
+  3. ``npm run db-setup``
 
-### Main Features
+  4. ``npm start``
 
- - Universal (Isomorphic) Javascript
- - Asyncronous Redux actions example
- - Use of RethinkDB Changefeeds for realtime updates reflected in the UI
+  5. navigate to [localhost:3001](http://localhost:3001/)
 
-### Demo
 
-There is a demo app hosted at [3ree-demo.workshape.io](http://3ree-demo.workshape.io). Check it out. If it is down, please email me at gordon@workshape.io
+### My Thought process:
 
-### Setup
+First off, I wanted to learn rethinkdb. I began with a tutorial. I went though a couple before I found Pulse.
 
-You will need to install [RethinkDB](http://www.rethinkdb.com). You can find instruction on how to do so [here](http://rethinkdb.com/docs/install/). Make sure you have the latest version installed.
+I used the Pulse template from [GitHub](https://github.com/GordyD/3ree)
 
- - Clone the repo `git clone git@github.com:GordyD/3ree.git`
- - Make sure you are using Node v6.0.0 (I recommend using [n](https://github.com/tj/n) for Node version management)
- - Run `npm install`
- - If your local environment is not reflected by `config/default.json`, then add a file at `config/local.json` to provide local customisation.
- - Run `npm run db-setup` to set up DB
+What I did:
 
-### Running Dev Server
+  * converted some syntax to ES6, although most of it was already done, mostly require -> import
+  * simplified library by removing unnecessary (for this project) files/code
+    * removed production server
+    * combined start-dev.js with server.babel.js
+    * changed database name
+      * in config/ & db-setup.js
+      * change table names in server/api/service/event.js
+    * redux-devtools, was visible by default on the development server, so I found a way to hide it on default. You can bring it up with ctrl-h
+    * removed unnecessary components
+      * otherEvents
+      * eventTicker
+      * asyncbar
+  * in universal/components/EntryInput.js
+    * added input for journal title, and added a handler to change state
+    * modified input for journal entry to textarea
+    * add wordcount to handler for textarea
+    * added sentiment score calculation to both handlers for happiness rating and textarea change. This updates sentiment score stored in state
+    * added live calculation of sentiment score
+  * in universal/components/EntryItem.js
+    * pass down title, wordcount, and sentiment value to to eventInput
+    * displayed title
+  * in universal components/EntryList.js
+    * sorts journal entries by sentiment score
 
-On Linux/OSX: `npm start`
+  * Changed Naming scheme
+    * Pulse -> CareCru
+    * pulseApp -> CareCruApp
+    * myEvents -> journalEntries
+    * EventInput -> EntryInput
+    * EventItem -> EntryItem
+    * EventList -> EntryList
+    * EventTicker -> EntryTicker
+    * PulseActions -> CareCruActions
+    * ActionTypes -> converted all EVENTS -> ENTRIES and EVENT to ENTRY
+    * pulse (a reducer) -> entryReducer
+    * changed api function names
 
-On Windows: `npm run start:win`
+  * styled page
+    * changed favicon, title
+    * added image to header, centered with flexbox
+    * styled textarea to be 5 rows
+    * increased width to 100% for title input & textarea
+    * added seperator
 
-This will start the Webpack dev server - for serving the client, as well as the server-side API.
+  * in universal/actions
+    * changed superagent module to axios
 
-Go to http://localhost:3001 in two separate tabs - see changes propagate in real time (Hot Module Replacement works too).
+While a lot of this code is taken from a secondary source, I believe that I have changed it significantly to display my knowledge and to meet the requirements given.
 
-### Running Production Server
+Thanks for your consideration.
 
-You will need to roll out your own deployment script for a server, but before you can ship you will need to:
 
- - Build the client with `npm run build:prod`
- - Ensure all production npm modules are installed on the server. e.g. `npm install --prod`
- - Rsync your application to your server
- - Set up nginx or your web server of choice to map HTTP requests for your URL to `http://localhost:3000`
- - Run `npm run start:prod` to run on your server
- - Go to your URL
 
-NOTE: Production has not been tested on Windows.
-
-### Tech Used
-
-| **Tech** | **Description** | **Version** |
-| ---------|-----------------|-------------|
-| [React](https://facebook.github.io/react/) | View layer | 15.0.2 |
-| [React Router](https://github.com/reactjs/react-router) | Universal routing | 2.4.0 |
-| [Redux](http://redux.js.org/) | State management | 3.5.0 |
-| [RethinkDB](http://www.rethinkdb.com) | Persistance layer | 2.3.1 |
-| [Express](http://expressjs.com/) | Node.js server framework | 4.13.0 |
-| [Socket.io]() | Used for realtime communication between clients and server | 1.4.0 |
-| [Webpack](https://webpack.github.io/) | Module bundling + build for client | 1.13.0 |
-| [Superagent](https://github.com/visionmedia/superagent) | Universal http requests | 1.8.0 |
-| [Stylus](http://stylus-lang.com/) | Expressive, dynamic, robust CSS | 0.54.0 |

@@ -1,5 +1,5 @@
 {
-  "name": "CareCru Interview",
+  "name": "CareCruInterview",
   "version": "1.0.0",
   "description": "An project for a tech interview using 3REE stack, React + Redux + RethinkDB + Express.",
   "main": "server.babel.js",
